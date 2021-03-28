@@ -1,0 +1,1416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.android.cts.releaseparser.MainTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-03-03T20:01:07" hostname="MSI" time="4.44">
+  <properties/>
+  <testcase name="testReleaseParser" classname="com.android.cts.releaseparser.MainTest" time="1.614"/>
+  <testcase name="testReleaseParser" classname="com.android.cts.releaseparser.MainTest" time="1.113"/>
+  <system-out><![CDATA[.dynsym, 18320, 57600, 4, 3, 24
+.dynstr, 75920, 112390, 0, 0
+.gnu.version, 188310, 4800, 3, 0
+.gnu.version_r, 193112, 64, 4, 2
+.plt, 258128, 7168, 0, 0
+.text, 265296, 586560, 0, 0
+.rodata, 851856, 24997, 0, 0
+.eh_frame_hdr, 876856, 18212, 0, 0
+.eh_frame, 895072, 77592, 0, 0
+.gcc_except_table, 972664, 55108, 0, 0
+.data.rel.ro, 1030000, 21240, 0, 0
+.dynamic, 1051240, 480, 4, 0
+.got, 1051720, 5040, 0, 0
+.data, 1056768, 272, 0, 0
+.comment, 1057040, 100, 0, 0
+mDynamicTabOffset 0x100a68, mDynamicTabSize 480
+libdl.so, 1, 1, 112301, 16, 32 
+    LIBC, 331107, 0, 3, 112385, 0
+
+libc.so, 1, 1, 111757, 16, 0 
+    LIBC, 331107, 0, 2, 112385, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ16978279731334834416, isDynSym true, symbol# 2400
+.text, 512, 20, 0, 0
+.dynsym, 536, 96, 7, 1, 24
+.gnu.version, 632, 8, 2, 0
+.gnu.version_r, 640, 32, 7, 1
+.dynstr, 748, 126, 0, 0
+.plt, 928, 48, 0, 0
+.eh_frame_hdr, 976, 20, 0, 0
+.eh_frame, 1000, 48, 0, 0
+.data, 4096, 12, 0, 0
+.dynamic, 8216, 448, 7, 0
+.got.plt, 8664, 32, 0, 0
+.gnu_debugdata, 8924, 668, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 448
+libc.so, 1, 1, 10, 16, 0 
+    LIBC, 331107, 0, 2, 64, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ3304217288306862847, isDynSym true, symbol# 4
+.text, 512, 52, 0, 0
+.dynsym, 568, 192, 7, 1, 24
+.gnu.version, 760, 16, 2, 0
+.gnu.version_r, 776, 32, 7, 1
+.dynstr, 940, 188, 0, 0
+.plt, 1200, 48, 0, 0
+.eh_frame_hdr, 1248, 28, 0, 0
+.eh_frame, 1280, 72, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 496, 7, 0
+.got, 8712, 8, 0, 0
+.got.plt, 8720, 32, 0, 0
+.gnu_debugdata, 8990, 692, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 496
+libc.so, 1, 1, 53, 16, 0 
+    LIBC, 331107, 0, 2, 117, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ5552714845655543995, isDynSym true, symbol# 8
+.text, 512, 68, 0, 0
+.rodata, 580, 35, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 342, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ4235801972411609823, isDynSym true, symbol# 12
+.text, 512, 68, 0, 0
+.rodata, 580, 35, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 342, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ1417624495086692621, isDynSym true, symbol# 12
+.text, 512, 68, 0, 0
+.rodata, 580, 33, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 339, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 137, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ12343140292180551278, isDynSym true, symbol# 12
+.text, 512, 566992, 0, 0
+.rodata, 567504, 28869, 0, 0
+.gcc_except_table, 596376, 52824, 0, 0
+.dynsym, 649200, 53160, 9, 1, 24
+.gnu.version, 702360, 4430, 4, 0
+.gnu.version_r, 706792, 64, 9, 2
+.dynstr, 739048, 107964, 0, 0
+.plt, 907360, 6816, 0, 0
+.eh_frame_hdr, 914176, 15516, 0, 0
+.eh_frame, 929696, 67040, 0, 0
+.data, 999424, 1688, 0, 0
+.data.rel.ro, 1003552, 17176, 0, 0
+.dynamic, 1020728, 480, 9, 0
+.got, 1021208, 1288, 0, 0
+.got.plt, 1022496, 3416, 0, 0
+.gnu_debugdata, 1026197, 8912, 0, 0
+mDynamicTabOffset 0xf9338, mDynamicTabSize 480
+libc.so, 1, 1, 53, 32, 16 
+    LIBC, 331107, 0, 2, 98, 0
+
+libdl.so, 1, 1, 44, 32, 0 
+    LIBC, 331107, 0, 3, 98, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ5846169003517024143, isDynSym true, symbol# 2215
+.text, 512, 210432, 0, 0
+.rodata, 210944, 11605, 0, 0
+.gcc_except_table, 222552, 11704, 0, 0
+.dynsym, 234256, 16872, 9, 1, 24
+.gnu.version, 251128, 1406, 4, 0
+.gnu.version_r, 252536, 64, 9, 2
+.dynstr, 262484, 18530, 0, 0
+.plt, 289456, 2544, 0, 0
+.eh_frame_hdr, 292000, 3332, 0, 0
+.eh_frame, 295336, 15816, 0, 0
+.data, 315392, 184, 0, 0
+.data.rel.ro, 319520, 5096, 0, 0
+.dynamic, 324616, 464, 9, 0
+.got, 325080, 632, 0, 0
+.got.plt, 325712, 1280, 0, 0
+.gnu_debugdata, 327269, 3804, 0, 0
+mDynamicTabOffset 0x4f408, mDynamicTabSize 464
+libc.so, 1, 1, 11, 32, 16 
+    LIBC, 331107, 0, 2, 84, 0
+
+libdl.so, 1, 1, 27, 32, 0 
+    LIBC, 331107, 0, 3, 84, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ1770340226243031386, isDynSym true, symbol# 703
+.dynsym, 344, 38608, 3, 1, 16
+.dynstr, 38952, 115025, 0, 0
+.gnu.version, 171852, 4826, 2, 0
+.gnu.version_d, 176680, 28, 3, 1
+.gnu.version_r, 176708, 64, 3, 2
+.plt, 203348, 12464, 0, 0
+.text, 215816, 329504, 0, 0
+.ARM.extab, 545320, 64044, 0, 0
+.rodata, 624176, 15184, 0, 0
+.data.rel.ro, 639584, 10584, 0, 0
+.dynamic, 650176, 264, 3, 0
+.got, 650448, 4912, 0, 0
+.data, 655360, 152, 0, 0
+.comment, 655512, 101, 0, 0
+mDynamicTabOffset 0x9ebc0, mDynamicTabSize 264
+libc.so, 1, 1, 21, 16, 32 
+    LIBC, 331107, 0, 2, 16, 0
+
+libdl.so, 1, 1, 2438, 16, 0 
+    LIBC, 331107, 0, 3, 16, 0
+
+libc++_shared.so, 1, 1, 1, 1, 224605183 
+    libc++_shared.so, 29, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ7256483493932823253, isDynSym true, symbol# 2413
+.text, 308, 6244, 0, 0
+.ARM.extab, 6904, 324, 0, 0
+.rodata, 7228, 633, 0, 0
+.dynsym, 7864, 720, 10, 1, 16
+.gnu.version, 8584, 90, 5, 0
+.gnu.version_r, 8676, 64, 10, 2
+.dynstr, 9348, 789, 0, 0
+.plt, 10528, 416, 0, 0
+.data, 12288, 12, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 224, 10, 0
+.got, 16692, 20, 0, 0
+.got.plt, 16712, 108, 0, 0
+.gnu_debugdata, 17134, 1976, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 224
+libc.so, 1, 1, 10, 32, 16 
+    LIBC, 331107, 0, 2, 64, 0
+
+libdl.so, 1, 1, 1, 32, 0 
+    LIBC, 331107, 0, 3, 64, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ10329763005152091954, isDynSym true, symbol# 45
+.text, 308, 6276, 0, 0
+.ARM.extab, 6936, 324, 0, 0
+.rodata, 7260, 633, 0, 0
+.dynsym, 7896, 784, 10, 1, 16
+.gnu.version, 8680, 98, 5, 0
+.gnu.version_r, 8780, 64, 10, 2
+.dynstr, 9504, 851, 0, 0
+.plt, 10752, 416, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 248, 10, 0
+.got, 16716, 24, 0, 0
+.got.plt, 16740, 108, 0, 0
+.gnu_debugdata, 17162, 1984, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 248
+libc.so, 1, 1, 53, 32, 16 
+    LIBC, 331107, 0, 2, 117, 0
+
+libdl.so, 1, 1, 44, 32, 0 
+    LIBC, 331107, 0, 3, 117, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ4158490052602281385, isDynSym true, symbol# 49
+.text, 308, 6304, 0, 0
+.rodata, 6972, 668, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1005, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2028, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 138, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ4934310181384098730, isDynSym true, symbol# 53
+.text, 308, 6304, 0, 0
+.rodata, 6972, 668, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1005, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2024, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 138, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ15340051349521729942, isDynSym true, symbol# 53
+.text, 308, 6304, 0, 0
+.rodata, 6972, 666, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1002, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2028, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 137, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 137, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ14692824891737959973, isDynSym true, symbol# 53
+.text, 312, 329236, 0, 0
+.rodata, 341504, 19584, 0, 0
+.ARM.extab, 361088, 56832, 0, 0
+.dynsym, 417920, 37088, 10, 1, 16
+.gnu.version, 455008, 4636, 5, 0
+.gnu.version_r, 459644, 96, 10, 3
+.dynstr, 493212, 113514, 0, 0
+.plt, 628048, 8432, 0, 0
+.data, 638976, 872, 0, 0
+.data.rel.ro, 643088, 8656, 0, 0
+.dynamic, 651744, 240, 10, 0
+.got, 651984, 696, 0, 0
+.got.plt, 652680, 2112, 0, 0
+.gnu_debugdata, 655114, 20932, 0, 0
+mDynamicTabOffset 0x9f1e0, mDynamicTabSize 240
+libc.so, 1, 1, 53, 48, 16 
+    LIBC, 331107, 0, 2, 98, 0
+
+libdl.so, 1, 1, 44, 48, 16 
+    LIBC, 331107, 0, 3, 98, 0
+
+libm.so, 1, 1, 61, 48, 0 
+    LIBC, 331107, 0, 4, 98, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ3139743689777421142, isDynSym true, symbol# 2318
+.text, 308, 111724, 0, 0
+.rodata, 114800, 6300, 0, 0
+.ARM.extab, 121100, 14644, 0, 0
+.dynsym, 135744, 11616, 10, 1, 16
+.gnu.version, 147360, 1452, 5, 0
+.gnu.version_r, 148812, 64, 10, 2
+.dynstr, 159040, 18911, 0, 0
+.plt, 181632, 3008, 0, 0
+.data, 188416, 88, 0, 0
+.data.rel.ro, 192528, 2528, 0, 0
+.dynamic, 195056, 232, 10, 0
+.got, 195288, 328, 0, 0
+.got.plt, 195616, 756, 0, 0
+.gnu_debugdata, 196698, 7264, 0, 0
+mDynamicTabOffset 0x2f9f0, mDynamicTabSize 232
+libc.so, 1, 1, 11, 32, 16 
+    LIBC, 331107, 0, 2, 84, 0
+
+libdl.so, 1, 1, 27, 32, 0 
+    LIBC, 331107, 0, 3, 84, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ13198526280300405468, isDynSym true, symbol# 726
+manifest,versionCode,0x1c,1
+manifest,versionName,Q,1
+manifest,compileSdkVersion,0x1c,1
+manifest,compileSdkVersionCodename,Q,1
+manifest,package,android.jni.cts,1
+manifest,platformBuildVersionCode,0x1c,1
+manifest,platformBuildVersionName,Q,1
+uses-sdk,minSdkVersion,Q,1
+uses-sdk,targetSdkVersion,Q,1
+uses-permission,name,android.permission.DISABLE_KEYGUARD,1
+uses-library,name,android.test.runner,1
+instrumentation,label,CTS,0
+instrumentation,name,android.support.test.runner.AndroidJUnitRunner,0
+instrumentation,targetPackage,android.jni.cts,0
+meta-data,name,listener,0
+meta-data,value,com.android.cts.runner.CtsTestRunListener,0
+dexFile: C:\Users\alwin\AppData\Local\Temp\MainTest\CtsJniTestCases.apk
+.dynsym, 18320, 57600, 4, 3, 24
+.dynstr, 75920, 112390, 0, 0
+.gnu.version, 188310, 4800, 3, 0
+.gnu.version_r, 193112, 64, 4, 2
+.plt, 258128, 7168, 0, 0
+.text, 265296, 586560, 0, 0
+.rodata, 851856, 24997, 0, 0
+.eh_frame_hdr, 876856, 18212, 0, 0
+.eh_frame, 895072, 77592, 0, 0
+.gcc_except_table, 972664, 55108, 0, 0
+.data.rel.ro, 1030000, 21240, 0, 0
+.dynamic, 1051240, 480, 4, 0
+.got, 1051720, 5040, 0, 0
+.data, 1056768, 272, 0, 0
+.comment, 1057040, 100, 0, 0
+mDynamicTabOffset 0x100a68, mDynamicTabSize 480
+libdl.so, 1, 1, 112301, 16, 32 
+    LIBC, 331107, 0, 3, 112385, 0
+
+libc.so, 1, 1, 111757, 16, 0 
+    LIBC, 331107, 0, 2, 112385, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ14083264560052391707, isDynSym true, symbol# 2400
+.text, 512, 20, 0, 0
+.dynsym, 536, 96, 7, 1, 24
+.gnu.version, 632, 8, 2, 0
+.gnu.version_r, 640, 32, 7, 1
+.dynstr, 748, 126, 0, 0
+.plt, 928, 48, 0, 0
+.eh_frame_hdr, 976, 20, 0, 0
+.eh_frame, 1000, 48, 0, 0
+.data, 4096, 12, 0, 0
+.dynamic, 8216, 448, 7, 0
+.got.plt, 8664, 32, 0, 0
+.gnu_debugdata, 8924, 668, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 448
+libc.so, 1, 1, 10, 16, 0 
+    LIBC, 331107, 0, 2, 64, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ7071068083160278988, isDynSym true, symbol# 4
+.text, 512, 52, 0, 0
+.dynsym, 568, 192, 7, 1, 24
+.gnu.version, 760, 16, 2, 0
+.gnu.version_r, 776, 32, 7, 1
+.dynstr, 940, 188, 0, 0
+.plt, 1200, 48, 0, 0
+.eh_frame_hdr, 1248, 28, 0, 0
+.eh_frame, 1280, 72, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 496, 7, 0
+.got, 8712, 8, 0, 0
+.got.plt, 8720, 32, 0, 0
+.gnu_debugdata, 8990, 692, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 496
+libc.so, 1, 1, 53, 16, 0 
+    LIBC, 331107, 0, 2, 117, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ3837355726956723963, isDynSym true, symbol# 8
+.text, 512, 68, 0, 0
+.rodata, 580, 35, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 342, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ15871492199360512690, isDynSym true, symbol# 12
+.text, 512, 68, 0, 0
+.rodata, 580, 35, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 342, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ6263216225358016713, isDynSym true, symbol# 12
+.text, 512, 68, 0, 0
+.rodata, 580, 33, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 339, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 137, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ13485429911603684010, isDynSym true, symbol# 12
+.text, 512, 566992, 0, 0
+.rodata, 567504, 28869, 0, 0
+.gcc_except_table, 596376, 52824, 0, 0
+.dynsym, 649200, 53160, 9, 1, 24
+.gnu.version, 702360, 4430, 4, 0
+.gnu.version_r, 706792, 64, 9, 2
+.dynstr, 739048, 107964, 0, 0
+.plt, 907360, 6816, 0, 0
+.eh_frame_hdr, 914176, 15516, 0, 0
+.eh_frame, 929696, 67040, 0, 0
+.data, 999424, 1688, 0, 0
+.data.rel.ro, 1003552, 17176, 0, 0
+.dynamic, 1020728, 480, 9, 0
+.got, 1021208, 1288, 0, 0
+.got.plt, 1022496, 3416, 0, 0
+.gnu_debugdata, 1026197, 8912, 0, 0
+mDynamicTabOffset 0xf9338, mDynamicTabSize 480
+libc.so, 1, 1, 53, 32, 16 
+    LIBC, 331107, 0, 2, 98, 0
+
+libdl.so, 1, 1, 44, 32, 0 
+    LIBC, 331107, 0, 3, 98, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ18247662229923316739, isDynSym true, symbol# 2215
+.text, 512, 210432, 0, 0
+.rodata, 210944, 11605, 0, 0
+.gcc_except_table, 222552, 11704, 0, 0
+.dynsym, 234256, 16872, 9, 1, 24
+.gnu.version, 251128, 1406, 4, 0
+.gnu.version_r, 252536, 64, 9, 2
+.dynstr, 262484, 18530, 0, 0
+.plt, 289456, 2544, 0, 0
+.eh_frame_hdr, 292000, 3332, 0, 0
+.eh_frame, 295336, 15816, 0, 0
+.data, 315392, 184, 0, 0
+.data.rel.ro, 319520, 5096, 0, 0
+.dynamic, 324616, 464, 9, 0
+.got, 325080, 632, 0, 0
+.got.plt, 325712, 1280, 0, 0
+.gnu_debugdata, 327269, 3804, 0, 0
+mDynamicTabOffset 0x4f408, mDynamicTabSize 464
+libc.so, 1, 1, 11, 32, 16 
+    LIBC, 331107, 0, 2, 84, 0
+
+libdl.so, 1, 1, 27, 32, 0 
+    LIBC, 331107, 0, 3, 84, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ3615870334368430617, isDynSym true, symbol# 703
+.dynsym, 344, 38608, 3, 1, 16
+.dynstr, 38952, 115025, 0, 0
+.gnu.version, 171852, 4826, 2, 0
+.gnu.version_d, 176680, 28, 3, 1
+.gnu.version_r, 176708, 64, 3, 2
+.plt, 203348, 12464, 0, 0
+.text, 215816, 329504, 0, 0
+.ARM.extab, 545320, 64044, 0, 0
+.rodata, 624176, 15184, 0, 0
+.data.rel.ro, 639584, 10584, 0, 0
+.dynamic, 650176, 264, 3, 0
+.got, 650448, 4912, 0, 0
+.data, 655360, 152, 0, 0
+.comment, 655512, 101, 0, 0
+mDynamicTabOffset 0x9ebc0, mDynamicTabSize 264
+libc.so, 1, 1, 21, 16, 32 
+    LIBC, 331107, 0, 2, 16, 0
+
+libdl.so, 1, 1, 2438, 16, 0 
+    LIBC, 331107, 0, 3, 16, 0
+
+libc++_shared.so, 1, 1, 1, 1, 224605183 
+    libc++_shared.so, 29, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ16162863571652170908, isDynSym true, symbol# 2413
+.text, 308, 6244, 0, 0
+.ARM.extab, 6904, 324, 0, 0
+.rodata, 7228, 633, 0, 0
+.dynsym, 7864, 720, 10, 1, 16
+.gnu.version, 8584, 90, 5, 0
+.gnu.version_r, 8676, 64, 10, 2
+.dynstr, 9348, 789, 0, 0
+.plt, 10528, 416, 0, 0
+.data, 12288, 12, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 224, 10, 0
+.got, 16692, 20, 0, 0
+.got.plt, 16712, 108, 0, 0
+.gnu_debugdata, 17134, 1976, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 224
+libc.so, 1, 1, 10, 32, 16 
+    LIBC, 331107, 0, 2, 64, 0
+
+libdl.so, 1, 1, 1, 32, 0 
+    LIBC, 331107, 0, 3, 64, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ3615101545796375313, isDynSym true, symbol# 45
+.text, 308, 6276, 0, 0
+.ARM.extab, 6936, 324, 0, 0
+.rodata, 7260, 633, 0, 0
+.dynsym, 7896, 784, 10, 1, 16
+.gnu.version, 8680, 98, 5, 0
+.gnu.version_r, 8780, 64, 10, 2
+.dynstr, 9504, 851, 0, 0
+.plt, 10752, 416, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 248, 10, 0
+.got, 16716, 24, 0, 0
+.got.plt, 16740, 108, 0, 0
+.gnu_debugdata, 17162, 1984, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 248
+libc.so, 1, 1, 53, 32, 16 
+    LIBC, 331107, 0, 2, 117, 0
+
+libdl.so, 1, 1, 44, 32, 0 
+    LIBC, 331107, 0, 3, 117, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ17382424984731107291, isDynSym true, symbol# 49
+.text, 308, 6304, 0, 0
+.rodata, 6972, 668, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1005, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2028, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 138, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ14502851482939571714, isDynSym true, symbol# 53
+.text, 308, 6304, 0, 0
+.rodata, 6972, 668, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1005, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2024, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 138, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ6062914846674468076, isDynSym true, symbol# 53
+.text, 308, 6304, 0, 0
+.rodata, 6972, 666, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1002, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2028, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 137, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 137, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ15926704496553228898, isDynSym true, symbol# 53
+.text, 312, 329236, 0, 0
+.rodata, 341504, 19584, 0, 0
+.ARM.extab, 361088, 56832, 0, 0
+.dynsym, 417920, 37088, 10, 1, 16
+.gnu.version, 455008, 4636, 5, 0
+.gnu.version_r, 459644, 96, 10, 3
+.dynstr, 493212, 113514, 0, 0
+.plt, 628048, 8432, 0, 0
+.data, 638976, 872, 0, 0
+.data.rel.ro, 643088, 8656, 0, 0
+.dynamic, 651744, 240, 10, 0
+.got, 651984, 696, 0, 0
+.got.plt, 652680, 2112, 0, 0
+.gnu_debugdata, 655114, 20932, 0, 0
+mDynamicTabOffset 0x9f1e0, mDynamicTabSize 240
+libc.so, 1, 1, 53, 48, 16 
+    LIBC, 331107, 0, 2, 98, 0
+
+libdl.so, 1, 1, 44, 48, 16 
+    LIBC, 331107, 0, 3, 98, 0
+
+libm.so, 1, 1, 61, 48, 0 
+    LIBC, 331107, 0, 4, 98, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ10212600969192856664, isDynSym true, symbol# 2318
+.text, 308, 111724, 0, 0
+.rodata, 114800, 6300, 0, 0
+.ARM.extab, 121100, 14644, 0, 0
+.dynsym, 135744, 11616, 10, 1, 16
+.gnu.version, 147360, 1452, 5, 0
+.gnu.version_r, 148812, 64, 10, 2
+.dynstr, 159040, 18911, 0, 0
+.plt, 181632, 3008, 0, 0
+.data, 188416, 88, 0, 0
+.data.rel.ro, 192528, 2528, 0, 0
+.dynamic, 195056, 232, 10, 0
+.got, 195288, 328, 0, 0
+.got.plt, 195616, 756, 0, 0
+.gnu_debugdata, 196698, 7264, 0, 0
+mDynamicTabOffset 0x2f9f0, mDynamicTabSize 232
+libc.so, 1, 1, 11, 32, 16 
+    LIBC, 331107, 0, 2, 84, 0
+
+libdl.so, 1, 1, 27, 32, 0 
+    LIBC, 331107, 0, 3, 84, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ9678599128990804958, isDynSym true, symbol# 726
+.dynsym, 18320, 57600, 4, 3, 24
+.dynstr, 75920, 112390, 0, 0
+.gnu.version, 188310, 4800, 3, 0
+.gnu.version_r, 193112, 64, 4, 2
+.plt, 258128, 7168, 0, 0
+.text, 265296, 586560, 0, 0
+.rodata, 851856, 24997, 0, 0
+.eh_frame_hdr, 876856, 18212, 0, 0
+.eh_frame, 895072, 77592, 0, 0
+.gcc_except_table, 972664, 55108, 0, 0
+.data.rel.ro, 1030000, 21240, 0, 0
+.dynamic, 1051240, 480, 4, 0
+.got, 1051720, 5040, 0, 0
+.data, 1056768, 272, 0, 0
+.comment, 1057040, 100, 0, 0
+mDynamicTabOffset 0x100a68, mDynamicTabSize 480
+libdl.so, 1, 1, 112301, 16, 32 
+    LIBC, 331107, 0, 3, 112385, 0
+
+libc.so, 1, 1, 111757, 16, 0 
+    LIBC, 331107, 0, 2, 112385, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ401782754629950973, isDynSym true, symbol# 2400
+.text, 512, 20, 0, 0
+.dynsym, 536, 96, 7, 1, 24
+.gnu.version, 632, 8, 2, 0
+.gnu.version_r, 640, 32, 7, 1
+.dynstr, 748, 126, 0, 0
+.plt, 928, 48, 0, 0
+.eh_frame_hdr, 976, 20, 0, 0
+.eh_frame, 1000, 48, 0, 0
+.data, 4096, 12, 0, 0
+.dynamic, 8216, 448, 7, 0
+.got.plt, 8664, 32, 0, 0
+.gnu_debugdata, 8924, 668, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 448
+libc.so, 1, 1, 10, 16, 0 
+    LIBC, 331107, 0, 2, 64, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ12620958520556294542, isDynSym true, symbol# 4
+.text, 512, 52, 0, 0
+.dynsym, 568, 192, 7, 1, 24
+.gnu.version, 760, 16, 2, 0
+.gnu.version_r, 776, 32, 7, 1
+.dynstr, 940, 188, 0, 0
+.plt, 1200, 48, 0, 0
+.eh_frame_hdr, 1248, 28, 0, 0
+.eh_frame, 1280, 72, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 496, 7, 0
+.got, 8712, 8, 0, 0
+.got.plt, 8720, 32, 0, 0
+.gnu_debugdata, 8990, 692, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 496
+libc.so, 1, 1, 53, 16, 0 
+    LIBC, 331107, 0, 2, 117, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ4617331724667852286, isDynSym true, symbol# 8
+.text, 512, 68, 0, 0
+.rodata, 580, 35, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 342, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ14366067055768791564, isDynSym true, symbol# 12
+.text, 512, 68, 0, 0
+.rodata, 580, 35, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 342, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ9169090654690822112, isDynSym true, symbol# 12
+.text, 512, 68, 0, 0
+.rodata, 580, 33, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 339, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 137, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ8260909891430225322, isDynSym true, symbol# 12
+.text, 512, 566992, 0, 0
+.rodata, 567504, 28869, 0, 0
+.gcc_except_table, 596376, 52824, 0, 0
+.dynsym, 649200, 53160, 9, 1, 24
+.gnu.version, 702360, 4430, 4, 0
+.gnu.version_r, 706792, 64, 9, 2
+.dynstr, 739048, 107964, 0, 0
+.plt, 907360, 6816, 0, 0
+.eh_frame_hdr, 914176, 15516, 0, 0
+.eh_frame, 929696, 67040, 0, 0
+.data, 999424, 1688, 0, 0
+.data.rel.ro, 1003552, 17176, 0, 0
+.dynamic, 1020728, 480, 9, 0
+.got, 1021208, 1288, 0, 0
+.got.plt, 1022496, 3416, 0, 0
+.gnu_debugdata, 1026197, 8912, 0, 0
+mDynamicTabOffset 0xf9338, mDynamicTabSize 480
+libc.so, 1, 1, 53, 32, 16 
+    LIBC, 331107, 0, 2, 98, 0
+
+libdl.so, 1, 1, 44, 32, 0 
+    LIBC, 331107, 0, 3, 98, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ16789091312802348269, isDynSym true, symbol# 2215
+.text, 512, 210432, 0, 0
+.rodata, 210944, 11605, 0, 0
+.gcc_except_table, 222552, 11704, 0, 0
+.dynsym, 234256, 16872, 9, 1, 24
+.gnu.version, 251128, 1406, 4, 0
+.gnu.version_r, 252536, 64, 9, 2
+.dynstr, 262484, 18530, 0, 0
+.plt, 289456, 2544, 0, 0
+.eh_frame_hdr, 292000, 3332, 0, 0
+.eh_frame, 295336, 15816, 0, 0
+.data, 315392, 184, 0, 0
+.data.rel.ro, 319520, 5096, 0, 0
+.dynamic, 324616, 464, 9, 0
+.got, 325080, 632, 0, 0
+.got.plt, 325712, 1280, 0, 0
+.gnu_debugdata, 327269, 3804, 0, 0
+mDynamicTabOffset 0x4f408, mDynamicTabSize 464
+libc.so, 1, 1, 11, 32, 16 
+    LIBC, 331107, 0, 2, 84, 0
+
+libdl.so, 1, 1, 27, 32, 0 
+    LIBC, 331107, 0, 3, 84, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ3613665438435752871, isDynSym true, symbol# 703
+.dynsym, 344, 38608, 3, 1, 16
+.dynstr, 38952, 115025, 0, 0
+.gnu.version, 171852, 4826, 2, 0
+.gnu.version_d, 176680, 28, 3, 1
+.gnu.version_r, 176708, 64, 3, 2
+.plt, 203348, 12464, 0, 0
+.text, 215816, 329504, 0, 0
+.ARM.extab, 545320, 64044, 0, 0
+.rodata, 624176, 15184, 0, 0
+.data.rel.ro, 639584, 10584, 0, 0
+.dynamic, 650176, 264, 3, 0
+.got, 650448, 4912, 0, 0
+.data, 655360, 152, 0, 0
+.comment, 655512, 101, 0, 0
+mDynamicTabOffset 0x9ebc0, mDynamicTabSize 264
+libc.so, 1, 1, 21, 16, 32 
+    LIBC, 331107, 0, 2, 16, 0
+
+libdl.so, 1, 1, 2438, 16, 0 
+    LIBC, 331107, 0, 3, 16, 0
+
+libc++_shared.so, 1, 1, 1, 1, 224605183 
+    libc++_shared.so, 29, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ2807175612443820108, isDynSym true, symbol# 2413
+.text, 308, 6244, 0, 0
+.ARM.extab, 6904, 324, 0, 0
+.rodata, 7228, 633, 0, 0
+.dynsym, 7864, 720, 10, 1, 16
+.gnu.version, 8584, 90, 5, 0
+.gnu.version_r, 8676, 64, 10, 2
+.dynstr, 9348, 789, 0, 0
+.plt, 10528, 416, 0, 0
+.data, 12288, 12, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 224, 10, 0
+.got, 16692, 20, 0, 0
+.got.plt, 16712, 108, 0, 0
+.gnu_debugdata, 17134, 1976, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 224
+libc.so, 1, 1, 10, 32, 16 
+    LIBC, 331107, 0, 2, 64, 0
+
+libdl.so, 1, 1, 1, 32, 0 
+    LIBC, 331107, 0, 3, 64, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ9202762566740846346, isDynSym true, symbol# 45
+.text, 308, 6276, 0, 0
+.ARM.extab, 6936, 324, 0, 0
+.rodata, 7260, 633, 0, 0
+.dynsym, 7896, 784, 10, 1, 16
+.gnu.version, 8680, 98, 5, 0
+.gnu.version_r, 8780, 64, 10, 2
+.dynstr, 9504, 851, 0, 0
+.plt, 10752, 416, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 248, 10, 0
+.got, 16716, 24, 0, 0
+.got.plt, 16740, 108, 0, 0
+.gnu_debugdata, 17162, 1984, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 248
+libc.so, 1, 1, 53, 32, 16 
+    LIBC, 331107, 0, 2, 117, 0
+
+libdl.so, 1, 1, 44, 32, 0 
+    LIBC, 331107, 0, 3, 117, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ5222680257309751068, isDynSym true, symbol# 49
+.text, 308, 6304, 0, 0
+.rodata, 6972, 668, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1005, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2028, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 138, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ548141897954131182, isDynSym true, symbol# 53
+.text, 308, 6304, 0, 0
+.rodata, 6972, 668, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1005, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2024, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 138, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ16361472935804007894, isDynSym true, symbol# 53
+.text, 308, 6304, 0, 0
+.rodata, 6972, 666, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1002, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2028, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 137, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 137, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ12489583933170635772, isDynSym true, symbol# 53
+.text, 312, 329236, 0, 0
+.rodata, 341504, 19584, 0, 0
+.ARM.extab, 361088, 56832, 0, 0
+.dynsym, 417920, 37088, 10, 1, 16
+.gnu.version, 455008, 4636, 5, 0
+.gnu.version_r, 459644, 96, 10, 3
+.dynstr, 493212, 113514, 0, 0
+.plt, 628048, 8432, 0, 0
+.data, 638976, 872, 0, 0
+.data.rel.ro, 643088, 8656, 0, 0
+.dynamic, 651744, 240, 10, 0
+.got, 651984, 696, 0, 0
+.got.plt, 652680, 2112, 0, 0
+.gnu_debugdata, 655114, 20932, 0, 0
+mDynamicTabOffset 0x9f1e0, mDynamicTabSize 240
+libc.so, 1, 1, 53, 48, 16 
+    LIBC, 331107, 0, 2, 98, 0
+
+libdl.so, 1, 1, 44, 48, 16 
+    LIBC, 331107, 0, 3, 98, 0
+
+libm.so, 1, 1, 61, 48, 0 
+    LIBC, 331107, 0, 4, 98, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ5627624803281398931, isDynSym true, symbol# 2318
+.text, 308, 111724, 0, 0
+.rodata, 114800, 6300, 0, 0
+.ARM.extab, 121100, 14644, 0, 0
+.dynsym, 135744, 11616, 10, 1, 16
+.gnu.version, 147360, 1452, 5, 0
+.gnu.version_r, 148812, 64, 10, 2
+.dynstr, 159040, 18911, 0, 0
+.plt, 181632, 3008, 0, 0
+.data, 188416, 88, 0, 0
+.data.rel.ro, 192528, 2528, 0, 0
+.dynamic, 195056, 232, 10, 0
+.got, 195288, 328, 0, 0
+.got.plt, 195616, 756, 0, 0
+.gnu_debugdata, 196698, 7264, 0, 0
+mDynamicTabOffset 0x2f9f0, mDynamicTabSize 232
+libc.so, 1, 1, 11, 32, 16 
+    LIBC, 331107, 0, 2, 84, 0
+
+libdl.so, 1, 1, 27, 32, 0 
+    LIBC, 331107, 0, 3, 84, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ13376151325705516804, isDynSym true, symbol# 726
+manifest,versionCode,0x1c,1
+manifest,versionName,Q,1
+manifest,compileSdkVersion,0x1c,1
+manifest,compileSdkVersionCodename,Q,1
+manifest,package,android.jni.cts,1
+manifest,platformBuildVersionCode,0x1c,1
+manifest,platformBuildVersionName,Q,1
+uses-sdk,minSdkVersion,Q,1
+uses-sdk,targetSdkVersion,Q,1
+uses-permission,name,android.permission.DISABLE_KEYGUARD,1
+uses-library,name,android.test.runner,1
+instrumentation,label,CTS,0
+instrumentation,name,android.support.test.runner.AndroidJUnitRunner,0
+instrumentation,targetPackage,android.jni.cts,0
+meta-data,name,listener,0
+meta-data,value,com.android.cts.runner.CtsTestRunListener,0
+dexFile: C:\Users\alwin\AppData\Local\Temp\MainTest\CtsJniTestCases.apk
+.dynsym, 18320, 57600, 4, 3, 24
+.dynstr, 75920, 112390, 0, 0
+.gnu.version, 188310, 4800, 3, 0
+.gnu.version_r, 193112, 64, 4, 2
+.plt, 258128, 7168, 0, 0
+.text, 265296, 586560, 0, 0
+.rodata, 851856, 24997, 0, 0
+.eh_frame_hdr, 876856, 18212, 0, 0
+.eh_frame, 895072, 77592, 0, 0
+.gcc_except_table, 972664, 55108, 0, 0
+.data.rel.ro, 1030000, 21240, 0, 0
+.dynamic, 1051240, 480, 4, 0
+.got, 1051720, 5040, 0, 0
+.data, 1056768, 272, 0, 0
+.comment, 1057040, 100, 0, 0
+mDynamicTabOffset 0x100a68, mDynamicTabSize 480
+libdl.so, 1, 1, 112301, 16, 32 
+    LIBC, 331107, 0, 3, 112385, 0
+
+libc.so, 1, 1, 111757, 16, 0 
+    LIBC, 331107, 0, 2, 112385, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ15640181334712648714, isDynSym true, symbol# 2400
+.text, 512, 20, 0, 0
+.dynsym, 536, 96, 7, 1, 24
+.gnu.version, 632, 8, 2, 0
+.gnu.version_r, 640, 32, 7, 1
+.dynstr, 748, 126, 0, 0
+.plt, 928, 48, 0, 0
+.eh_frame_hdr, 976, 20, 0, 0
+.eh_frame, 1000, 48, 0, 0
+.data, 4096, 12, 0, 0
+.dynamic, 8216, 448, 7, 0
+.got.plt, 8664, 32, 0, 0
+.gnu_debugdata, 8924, 668, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 448
+libc.so, 1, 1, 10, 16, 0 
+    LIBC, 331107, 0, 2, 64, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ4759495200545333737, isDynSym true, symbol# 4
+.text, 512, 52, 0, 0
+.dynsym, 568, 192, 7, 1, 24
+.gnu.version, 760, 16, 2, 0
+.gnu.version_r, 776, 32, 7, 1
+.dynstr, 940, 188, 0, 0
+.plt, 1200, 48, 0, 0
+.eh_frame_hdr, 1248, 28, 0, 0
+.eh_frame, 1280, 72, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 496, 7, 0
+.got, 8712, 8, 0, 0
+.got.plt, 8720, 32, 0, 0
+.gnu_debugdata, 8990, 692, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 496
+libc.so, 1, 1, 53, 16, 0 
+    LIBC, 331107, 0, 2, 117, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ17296591985207257121, isDynSym true, symbol# 8
+.text, 512, 68, 0, 0
+.rodata, 580, 35, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 342, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ16618803082301339957, isDynSym true, symbol# 12
+.text, 512, 68, 0, 0
+.rodata, 580, 35, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 342, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ10607531744567119423, isDynSym true, symbol# 12
+.text, 512, 68, 0, 0
+.rodata, 580, 33, 0, 0
+.dynsym, 616, 288, 8, 1, 24
+.gnu.version, 904, 24, 3, 0
+.gnu.version_r, 928, 32, 8, 1
+.dynstr, 1128, 339, 0, 0
+.plt, 1600, 96, 0, 0
+.eh_frame_hdr, 1696, 36, 0, 0
+.eh_frame, 1736, 104, 0, 0
+.data, 4096, 8, 0, 0
+.dynamic, 8216, 512, 8, 0
+.got.plt, 8728, 56, 0, 0
+.gnu_debugdata, 9025, 704, 0, 0
+mDynamicTabOffset 0x2018, mDynamicTabSize 512
+libc.so, 1, 1, 69, 16, 0 
+    LIBC, 331107, 0, 2, 137, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ1366355212293508104, isDynSym true, symbol# 12
+.text, 512, 566992, 0, 0
+.rodata, 567504, 28869, 0, 0
+.gcc_except_table, 596376, 52824, 0, 0
+.dynsym, 649200, 53160, 9, 1, 24
+.gnu.version, 702360, 4430, 4, 0
+.gnu.version_r, 706792, 64, 9, 2
+.dynstr, 739048, 107964, 0, 0
+.plt, 907360, 6816, 0, 0
+.eh_frame_hdr, 914176, 15516, 0, 0
+.eh_frame, 929696, 67040, 0, 0
+.data, 999424, 1688, 0, 0
+.data.rel.ro, 1003552, 17176, 0, 0
+.dynamic, 1020728, 480, 9, 0
+.got, 1021208, 1288, 0, 0
+.got.plt, 1022496, 3416, 0, 0
+.gnu_debugdata, 1026197, 8912, 0, 0
+mDynamicTabOffset 0xf9338, mDynamicTabSize 480
+libc.so, 1, 1, 53, 32, 16 
+    LIBC, 331107, 0, 2, 98, 0
+
+libdl.so, 1, 1, 44, 32, 0 
+    LIBC, 331107, 0, 3, 98, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ13769231303058960113, isDynSym true, symbol# 2215
+.text, 512, 210432, 0, 0
+.rodata, 210944, 11605, 0, 0
+.gcc_except_table, 222552, 11704, 0, 0
+.dynsym, 234256, 16872, 9, 1, 24
+.gnu.version, 251128, 1406, 4, 0
+.gnu.version_r, 252536, 64, 9, 2
+.dynstr, 262484, 18530, 0, 0
+.plt, 289456, 2544, 0, 0
+.eh_frame_hdr, 292000, 3332, 0, 0
+.eh_frame, 295336, 15816, 0, 0
+.data, 315392, 184, 0, 0
+.data.rel.ro, 319520, 5096, 0, 0
+.dynamic, 324616, 464, 9, 0
+.got, 325080, 632, 0, 0
+.got.plt, 325712, 1280, 0, 0
+.gnu_debugdata, 327269, 3804, 0, 0
+mDynamicTabOffset 0x4f408, mDynamicTabSize 464
+libc.so, 1, 1, 11, 32, 16 
+    LIBC, 331107, 0, 2, 84, 0
+
+libdl.so, 1, 1, 27, 32, 0 
+    LIBC, 331107, 0, 3, 84, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ15891277257370660362, isDynSym true, symbol# 703
+.dynsym, 344, 38608, 3, 1, 16
+.dynstr, 38952, 115025, 0, 0
+.gnu.version, 171852, 4826, 2, 0
+.gnu.version_d, 176680, 28, 3, 1
+.gnu.version_r, 176708, 64, 3, 2
+.plt, 203348, 12464, 0, 0
+.text, 215816, 329504, 0, 0
+.ARM.extab, 545320, 64044, 0, 0
+.rodata, 624176, 15184, 0, 0
+.data.rel.ro, 639584, 10584, 0, 0
+.dynamic, 650176, 264, 3, 0
+.got, 650448, 4912, 0, 0
+.data, 655360, 152, 0, 0
+.comment, 655512, 101, 0, 0
+mDynamicTabOffset 0x9ebc0, mDynamicTabSize 264
+libc.so, 1, 1, 21, 16, 32 
+    LIBC, 331107, 0, 2, 16, 0
+
+libdl.so, 1, 1, 2438, 16, 0 
+    LIBC, 331107, 0, 3, 16, 0
+
+libc++_shared.so, 1, 1, 1, 1, 224605183 
+    libc++_shared.so, 29, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ11005991149588189631, isDynSym true, symbol# 2413
+.text, 308, 6244, 0, 0
+.ARM.extab, 6904, 324, 0, 0
+.rodata, 7228, 633, 0, 0
+.dynsym, 7864, 720, 10, 1, 16
+.gnu.version, 8584, 90, 5, 0
+.gnu.version_r, 8676, 64, 10, 2
+.dynstr, 9348, 789, 0, 0
+.plt, 10528, 416, 0, 0
+.data, 12288, 12, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 224, 10, 0
+.got, 16692, 20, 0, 0
+.got.plt, 16712, 108, 0, 0
+.gnu_debugdata, 17134, 1976, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 224
+libc.so, 1, 1, 10, 32, 16 
+    LIBC, 331107, 0, 2, 64, 0
+
+libdl.so, 1, 1, 1, 32, 0 
+    LIBC, 331107, 0, 3, 64, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ17797914380174221073, isDynSym true, symbol# 45
+.text, 308, 6276, 0, 0
+.ARM.extab, 6936, 324, 0, 0
+.rodata, 7260, 633, 0, 0
+.dynsym, 7896, 784, 10, 1, 16
+.gnu.version, 8680, 98, 5, 0
+.gnu.version_r, 8780, 64, 10, 2
+.dynstr, 9504, 851, 0, 0
+.plt, 10752, 416, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 248, 10, 0
+.got, 16716, 24, 0, 0
+.got.plt, 16740, 108, 0, 0
+.gnu_debugdata, 17162, 1984, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 248
+libc.so, 1, 1, 53, 32, 16 
+    LIBC, 331107, 0, 2, 117, 0
+
+libdl.so, 1, 1, 44, 32, 0 
+    LIBC, 331107, 0, 3, 117, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ5048923124342722989, isDynSym true, symbol# 49
+.text, 308, 6304, 0, 0
+.rodata, 6972, 668, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1005, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2028, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 138, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ13897735809354605528, isDynSym true, symbol# 53
+.text, 308, 6304, 0, 0
+.rodata, 6972, 668, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1005, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2024, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 138, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 138, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ1899711990758169306, isDynSym true, symbol# 53
+.text, 308, 6304, 0, 0
+.rodata, 6972, 666, 0, 0
+.ARM.extab, 7640, 324, 0, 0
+.dynsym, 7964, 848, 10, 1, 16
+.gnu.version, 8812, 106, 5, 0
+.gnu.version_r, 8920, 64, 10, 2
+.dynstr, 9680, 1002, 0, 0
+.plt, 11088, 464, 0, 0
+.data, 12288, 8, 0, 0
+.data.rel.ro, 16392, 72, 0, 0
+.dynamic, 16468, 256, 10, 0
+.got, 16724, 20, 0, 0
+.got.plt, 16744, 120, 0, 0
+.gnu_debugdata, 17178, 2028, 0, 0
+mDynamicTabOffset 0x4054, mDynamicTabSize 256
+libc.so, 1, 1, 69, 32, 16 
+    LIBC, 331107, 0, 2, 137, 0
+
+libdl.so, 1, 1, 60, 32, 0 
+    LIBC, 331107, 0, 3, 137, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ14802924238564425577, isDynSym true, symbol# 53
+.text, 312, 329236, 0, 0
+.rodata, 341504, 19584, 0, 0
+.ARM.extab, 361088, 56832, 0, 0
+.dynsym, 417920, 37088, 10, 1, 16
+.gnu.version, 455008, 4636, 5, 0
+.gnu.version_r, 459644, 96, 10, 3
+.dynstr, 493212, 113514, 0, 0
+.plt, 628048, 8432, 0, 0
+.data, 638976, 872, 0, 0
+.data.rel.ro, 643088, 8656, 0, 0
+.dynamic, 651744, 240, 10, 0
+.got, 651984, 696, 0, 0
+.got.plt, 652680, 2112, 0, 0
+.gnu_debugdata, 655114, 20932, 0, 0
+mDynamicTabOffset 0x9f1e0, mDynamicTabSize 240
+libc.so, 1, 1, 53, 48, 16 
+    LIBC, 331107, 0, 2, 98, 0
+
+libdl.so, 1, 1, 44, 48, 16 
+    LIBC, 331107, 0, 3, 98, 0
+
+libm.so, 1, 1, 61, 48, 0 
+    LIBC, 331107, 0, 4, 98, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ9120664872686341171, isDynSym true, symbol# 2318
+.text, 308, 111724, 0, 0
+.rodata, 114800, 6300, 0, 0
+.ARM.extab, 121100, 14644, 0, 0
+.dynsym, 135744, 11616, 10, 1, 16
+.gnu.version, 147360, 1452, 5, 0
+.gnu.version_r, 148812, 64, 10, 2
+.dynstr, 159040, 18911, 0, 0
+.plt, 181632, 3008, 0, 0
+.data, 188416, 88, 0, 0
+.data.rel.ro, 192528, 2528, 0, 0
+.dynamic, 195056, 232, 10, 0
+.got, 195288, 328, 0, 0
+.got.plt, 195616, 756, 0, 0
+.gnu_debugdata, 196698, 7264, 0, 0
+mDynamicTabOffset 0x2f9f0, mDynamicTabSize 232
+libc.so, 1, 1, 11, 32, 16 
+    LIBC, 331107, 0, 2, 84, 0
+
+libdl.so, 1, 1, 27, 32, 0 
+    LIBC, 331107, 0, 3, 84, 0
+
+Info readSymbolTable: C:\Users\alwin\AppData\Local\Temp\RPZ5457371836481936893, isDynSym true, symbol# 726
+]]></system-out>
+  <system-err><![CDATA[Mar 03, 2021 12:01:08 PM com.android.cts.releaseparser.ApkParser prase
+WARNING: ToDo,parse dependencies,CtsJniTestCases.apk
+Release Name unknown!
+Mar 03, 2021 12:01:11 PM com.android.cts.releaseparser.ApkParser prase
+WARNING: ToDo,parse dependencies,CtsJniTestCases.apk
+Release Name unknown!
+]]></system-err>
+</testsuite>

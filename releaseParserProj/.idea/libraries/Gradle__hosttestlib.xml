@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: hosttestlib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../libs/hosttestlib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

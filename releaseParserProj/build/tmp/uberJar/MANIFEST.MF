@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: releaseParserProj
+Implementation-Version: unspecified
+Main-Class: com.android.cts.releaseparser.Main
+
