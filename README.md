@@ -67,4 +67,3 @@ Here are some command lines that can be used for testing docker image
 5. Create the ..\out folder
 6. Run
 7. Verify at out folder
-
