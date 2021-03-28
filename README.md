@@ -57,3 +57,7 @@ Here are some command lines that can be used for testing docker image
 	* Stops the running docker
 * docker ps
 	* Checks the running docker status 
+	
+	
+1. Add Configuration
+2.

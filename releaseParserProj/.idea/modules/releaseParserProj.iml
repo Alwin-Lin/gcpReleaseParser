@@ -5,11 +5,12 @@
     <output-test url="file://$MODULE_DIR$/../../build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../..">
-      <sourceFolder url="file://$MODULE_DIR$/../../build/generated/source/proto/main/java" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../build" />
     </content>
-    <content url="file://$MODULE_DIR$/../../build/generated/source/proto/main/java" />
+    <content url="file://$MODULE_DIR$/../../build/generated/source/proto/main/java">
+      <sourceFolder url="file://$MODULE_DIR$/../../build/generated/source/proto/main/java" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/../../../releaseParserSrc/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../releaseParserSrc/src" isTestSource="false" />
     </content>
