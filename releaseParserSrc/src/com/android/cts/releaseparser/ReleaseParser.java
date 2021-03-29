@@ -16,6 +16,8 @@
 
 package com.android.cts.releaseparser;
 
+import android.os.SystemPropertiesProto;
+
 import com.android.cts.releaseparser.ReleaseProto.*;
 
 import java.io.File;
@@ -66,25 +68,32 @@ class ReleaseParser {
 
     private final String mFolderPath;
     private Path mRootPath;
+    private final String mFilter;
     private ReleaseContent.Builder mRelContentBuilder;
     private Map<String, Entry> mEntries;
 
-    ReleaseParser(String folder) {
+    ReleaseParser(String folder, String filter) {
         mFolderPath = folder;
         File fFile = new File(mFolderPath);
         mRootPath = Paths.get(fFile.getAbsolutePath());
+        mFilter = filter;
         mEntries = new HashMap<String, Entry>();
     }
 
-    public String getReleaseId() throws IOException {
+    public String getReleaseName() throws IOException {
         ReleaseContent relContent = getReleaseContent();
-        return getReleaseId(relContent);
+        return getReleaseName(relContent);
     }
 
-    public static String getReleaseId(ReleaseContent relContent) {
+    public static String getReleaseName(ReleaseContent relContent) {
         return String.format(
                 "%s-%s-%s",
                 relContent.getFullname(), relContent.getVersion(), relContent.getBuildNumber());
+    }
+
+    public String getReleaseId() throws IOException {
+        ReleaseContent releaseContent = getReleaseContent();
+        return releaseContent.getReleaseId();
     }
 
     public ReleaseContent getReleaseContent() throws IOException {
@@ -93,18 +102,29 @@ class ReleaseParser {
             // default APP_DISTRIBUTION_PACKAGE if no BUILD_PROP nor TEST_SUITE_TRADEFED is found
             mRelContentBuilder.setReleaseType(ReleaseType.APP_DISTRIBUTION_PACKAGE);
             // also add the root folder entry
-            Entry.Builder fBuilder = parseFolder(mFolderPath);
-            if (mRelContentBuilder.getName().equals("")) {
+            Entry.Builder fBuilder = parseFolderWithFilter();
+
+            // Set Rel name
+            String fingerPrint = getBuildFingerPrint();
+            if (fingerPrint == null){
                 System.err.println("Release Name unknown!");
                 File file = new File(mFolderPath);
                 String name = file.getName();
                 mRelContentBuilder.setName(name);
                 mRelContentBuilder.setFullname(name);
+                mRelContentBuilder.setReleaseId(name);
+            } else {
+                mRelContentBuilder.setReleaseId(fingerPrint);
+                mRelContentBuilder.setReleaseType(ReleaseType.DEVICE_BUILD);
+                mRelContentBuilder.setName(getName());
+                mRelContentBuilder.setFullname(getFullName());
+                mRelContentBuilder.setBuildNumber(getBuildNumber());
+                mRelContentBuilder.setVersion(getVersion());
             }
             fBuilder.setRelativePath(ROOT_FOLDER_TAG);
-            String relId = getReleaseId(mRelContentBuilder.build());
-            fBuilder.setName(relId);
-            mRelContentBuilder.setReleaseId(relId);
+            String relName = getReleaseName(mRelContentBuilder.build());
+            fBuilder.setName(relName);
+            mRelContentBuilder.setReleaseId(mRelContentBuilder.getReleaseId());
             mRelContentBuilder.setContentId(fBuilder.getContentId());
             mRelContentBuilder.setSize(fBuilder.getSize());
             Entry fEntry = fBuilder.build();
@@ -114,20 +134,38 @@ class ReleaseParser {
         return mRelContentBuilder.build();
     }
 
+    // Parse folder with filter
+    private Entry.Builder parseFolderWithFilter() throws IOException {
+        if (mFilter == null || mFilter.isEmpty()){
+            return parseFolder(mFolderPath);
+        } else {
+            String [] children = mFilter.split(" ");
+            List<File> fileList = new ArrayList<>();
+            for (String child: children) {
+                File file = new File(mFolderPath, child);
+            }
+            File [] fileArray = fileList.toArray(new File[0]);
+            return parseFolder(fileArray, "");
+        }
+    }
+
     // Parse all files in a folder and return the foler entry builder
     private Entry.Builder parseFolder(String fPath) throws IOException {
-        Entry.Builder folderEntry = Entry.newBuilder();
         File folder = new File(fPath);
         Path folderPath = Paths.get(folder.getAbsolutePath());
         String folderRelativePath = mRootPath.relativize(folderPath).toString();
         File[] fileList = folder.listFiles();
+        return parseFolder(fileList, folderRelativePath);
+    }
+
+    private Entry.Builder parseFolder(File[] fileList, String folderRelativePath) throws IOException {
+        Entry.Builder folderEntry = Entry.newBuilder();
         Long folderSize = 0L;
         List<Entry> entryList = new ArrayList<Entry>();
 
         // walks through all files
         for (File file : fileList) {
             if (file.isDirectory() && isNotSimbolicLink(file)){
-                // Checks subfolders
                 Entry.Builder subFolderEntry = parseFolder(file.getAbsolutePath());
                 if (folderRelativePath.isEmpty()) {
                     subFolderEntry.setParentFolder(ROOT_FOLDER_TAG);
@@ -168,20 +206,7 @@ class ReleaseParser {
                         break;
                     case BUILD_PROP:
                         BuildPropParser bpParser = (BuildPropParser) fParser;
-                        try {
-                            mRelContentBuilder.setReleaseType(ReleaseType.DEVICE_BUILD);
-                            mRelContentBuilder.setName(bpParser.getName());
-                            mRelContentBuilder.setFullname(bpParser.getFullName());
-                            mRelContentBuilder.setBuildNumber(bpParser.getBuildNumber());
-                            mRelContentBuilder.setVersion(bpParser.getVersion());
-                            mRelContentBuilder.putAllProperties(bpParser.getProperties());
-                        } catch (Exception e) {
-                            System.err.println(
-                                    "No product name, version & etc. in "
-                                            + file.getAbsoluteFile()
-                                            + ", err:"
-                                            + e.getMessage());
-                        }
+                       mRelContentBuilder.putAllProperties(bpParser.getProperties());
                         break;
                     default:
                 }
@@ -223,6 +248,39 @@ class ReleaseParser {
             System.err.println("NoSuchAlgorithmException:" + e.getMessage());
         }
         return id;
+    }
+
+    // Writes file list CSV file
+    public void writeFileListCsvFile(String fingerPrint, String csvFile) {
+        try {
+            FileWriter fileWriter = new FileWriter(csvFile);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            // Header
+            printWriter.printf(
+                    "build_fingerprint,type,name,size,relative_path,content_id,parent_folder,architecture,bits/n");
+            for (Entry entry : getFileEntries()) {
+                String packageName = "";
+                if (entry.getType() == Entry.EntryType.APK) {
+                    packageName = entry.getAppInfo().getPackageName();
+                }
+
+                printWriter.printf(
+                        "%s,%s,%s,%d,%s,%s,%s,%s,%d\n",
+                        fingerPrint,
+                        entry.getType(),
+                        entry.getName(),
+                        entry.getSize(),
+                        entry.getRelativePath(),
+                        entry.getContentId(),
+                        entry.getParentFolder(),
+                        entry.getAbiArchitecture(),
+                        entry.getAbiBits());
+            }
+            printWriter.flush();
+            printWriter.close();
+        } catch (IOException e) {
+            System.err.println("IPExpectation" + e.getMessage());
+        }
     }
 
     // writes releaes content to a CSV file
@@ -332,9 +390,34 @@ class ReleaseParser {
     }
 
     public boolean isNotSimbolicLink(File file) {
-        if (Files.isSymbolicLink(file.toPath())){
-            return false;
+        return ! Files.isSymbolicLink(file.toPath());
+    }
+
+    private String getBuildFingerPrint() {
+        String fingerPrint = mRelContentBuilder.getPropertiesMap().get("ro.production.fingerprint");
+        if (fingerPrint == null) {
+            fingerPrint = mRelContentBuilder.getPropertiesMap().get("ro.system.build.fingerprint");
         }
-        return true;
+        return fingerPrint;
+    }
+
+    private String getBuildNumber() {
+        return mRelContentBuilder.getPropertiesMap().get("ro.build.version.incremental");
+    }
+
+    private String getVersion() {
+        return mRelContentBuilder.getPropertiesMap().get("ro.production.id");
+    }
+
+    private String getName() {
+        String name = mRelContentBuilder.getPropertiesMap().get("ro.product.device");
+        if (name == null) {
+            name = mRelContentBuilder.getPropertiesMap().get("ro.build.product");
+        }
+        return name;
+    }
+
+    private String getFullName() {
+        return mRelContentBuilder.getPropertiesMap().get("ro.build.flavor");
     }
 }

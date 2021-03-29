@@ -217,7 +217,7 @@ public class JsonPrinter {
                     mJsonWriter.name("class").value(clazz.getName());
                     mJsonWriter.name("method").value(method.getName());
                     mJsonWriter.name("file_name").value(entry.getName());
-                    mJsonWriter.name("release_id").value(ReleaseParser.getReleaseId(mRelContent));
+                    mJsonWriter.name("release_id").value(ReleaseParser.getReleaseName(mRelContent));
                     mJsonWriter.endObject();
                     mJsonWriter.newlineDelimited();
                 }

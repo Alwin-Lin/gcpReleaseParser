@@ -33,24 +33,30 @@ public class Main {
                     + "\tto prase a release, such as device build, test suite or app distribution package\n"
                     + "Options:\n"
                     + "\t-i PATH\t path to a release folder\n"
-                    + "\t-o PATH\t path to output files\n";
+                    + "\t-o PATH\t path to output files\n"
+                    + "\t-f PATH\t Filter1, Filter2\n";
 
     public static void main(final String[] args) {
         try {
             ArgumentParser argParser = new ArgumentParser(args);
             String relFolder = argParser.getParameterElement("i", 0);
             String outputPath = argParser.getParameterElement("o", 0);
+            String filters = argParser.getParameterElement("f", 0);
 
             // parse a release folder
-            ReleaseParser relParser = new ReleaseParser(relFolder);
-            String relNameVer = relParser.getReleaseId();
-            // Write releaseContentCsvFile
+            ReleaseParser relParser = new ReleaseParser(relFolder, filters);
+            String relNameVer = relParser.getReleaseName();
+            String relID = relParser.getReleaseId();
+            // Generates filelistCsvFile
+            relParser.writeFileListCsvFile(
+                    relID, getPathString(outputPath, "%s-FileList.csv", relNameVer));
+            // Generates releaseContentCsvFile
             relParser.writeRelesaeContentCsvFile(
                     relNameVer, getPathString(outputPath, "%s-ReleaseContent.csv", relNameVer));
-            // Write apk so information in a csv file
+            // Generates apk so information in a csv file
             relParser.writeApkCsvFile(
                     relNameVer, getPathString(outputPath, "%s-Apk.csv", relNameVer));
-            // write release content JSON file
+            // Generates release content JSON file
             JsonPrinter jPrinter =
                     new JsonPrinter(
                             relParser.getReleaseContent(),

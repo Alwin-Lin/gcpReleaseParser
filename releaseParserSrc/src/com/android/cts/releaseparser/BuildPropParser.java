@@ -50,21 +50,6 @@ public class BuildPropParser extends TextFileParser {
         }
     }
 
-    public String getBuildNumber() {
-        return getProperty("ro.build.version.incremental");
-    }
-
-    public String getVersion() {
-        return getProperty("ro.build.id");
-    }
-
-    public String getName() {
-        return getProperty("ro.product.device");
-    }
-
-    public String getFullName() {
-        return getProperty("ro.build.flavor");
-    }
 
     public Map<String, String> getProperties() {
         if (mType == null) {
