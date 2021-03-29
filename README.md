@@ -59,5 +59,11 @@ Here are some command lines that can be used for testing docker image
 	* Checks the running docker status 
 	
 	
-1. Add Configuration
-2.
+### Steps after downlaod
+1. downlaod proj, run uberjar
+2. Edit config, point path to jar to output uberjar
+3. program args -i ..\releaseParserSrc\tests\resources -o ..\out -a 28
+4. JRE point to C:\Program Files\Java\jdk-14.0.1
+5. Create the ..\out folder
+6. Run
+7. Verify at out folder
