@@ -398,6 +398,9 @@ class ReleaseParser {
         if (fingerPrint == null) {
             fingerPrint = mRelContentBuilder.getPropertiesMap().get("ro.system.build.fingerprint");
         }
+        if (fingerPrint == null) {
+            fingerPrint = mRelContentBuilder.getPropertiesMap().get("ro.build.fingerprint");
+        }
         return fingerPrint;
     }
 
@@ -406,7 +409,11 @@ class ReleaseParser {
     }
 
     private String getVersion() {
-        return mRelContentBuilder.getPropertiesMap().get("ro.production.id");
+        String version = mRelContentBuilder.getPropertiesMap().get("ro.production.id");
+        if (version == null) {
+            version = mRelContentBuilder.getPropertiesMap().get("ro.build.id");
+        }
+        return version;
     }
 
     private String getName() {
