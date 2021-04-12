@@ -110,8 +110,6 @@ public class RcParser extends FileParser {
                             service.getClazz(),
                             service.getUser(),
                             service.getGroup()));
-            // System.err.println(String.format("RcParser-toString %s %s %s ", service.getName(),
-            // service.getFile(), String.join(" ", service.getArgumentsList())));
         }
         return result.toString();
     }

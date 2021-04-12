@@ -16,8 +16,6 @@
 
 package com.android.cts.releaseparser;
 
-import android.os.SystemPropertiesProto;
-
 import com.android.cts.releaseparser.ReleaseProto.*;
 
 import java.io.File;
@@ -37,7 +35,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class ReleaseParser {
+
+class ReleaseParser{
     private static final String ROOT_FOLDER_TAG = "/";
     // configuration option
     private static final String NOT_SHARDABLE_TAG = "not-shardable";
@@ -71,6 +70,8 @@ class ReleaseParser {
     private final String mFilter;
     private ReleaseContent.Builder mRelContentBuilder;
     private Map<String, Entry> mEntries;
+    private Collection<PermissionList> mPermissionList;
+    private List<Service> mServiceList;
 
     ReleaseParser(String folder, String filter) {
         mFolderPath = folder;
@@ -96,6 +97,7 @@ class ReleaseParser {
         return releaseContent.getReleaseId();
     }
 
+    // Get ReleaseContent, if null, parse release first
     public ReleaseContent getReleaseContent() throws IOException {
         if (mRelContentBuilder == null) {
             mRelContentBuilder = ReleaseContent.newBuilder();
@@ -257,18 +259,13 @@ class ReleaseParser {
             PrintWriter printWriter = new PrintWriter(fileWriter);
             // Header
             printWriter.printf(
-                    "build_fingerprint,type,name,size,relative_path,content_id,parent_folder,architecture,bits/n");
+                    "build_fingerprint,type,name,size,relative_path,content_id,parent_folder,architecture,bits\n");
             for (Entry entry : getFileEntries()) {
-                String packageName = "";
-                if (entry.getType() == Entry.EntryType.APK) {
-                    packageName = entry.getAppInfo().getPackageName();
-                }
-
                 printWriter.printf(
                         "%s,%s,%s,%d,%s,%s,%s,%s,%d\n",
                         fingerPrint,
                         entry.getType(),
-                        entry.getName(),
+                        getName(),
                         entry.getSize(),
                         entry.getRelativePath(),
                         entry.getContentId(),
@@ -283,8 +280,8 @@ class ReleaseParser {
         }
     }
 
-    // writes releaes content to a CSV file
-    public void writeRelesaeContentCsvFile(String relNameVer, String csvFile) {
+    // writes release content to a CSV file
+    public void writeReleaseContentCstFile(String relNameVer, String csvFile) {
         try {
             FileWriter fWriter = new FileWriter(csvFile);
             PrintWriter pWriter = new PrintWriter(fWriter);
@@ -319,8 +316,9 @@ class ReleaseParser {
             System.err.println("IOException:" + e.getMessage());
         }
     }
+
     // Writes apk content to save as CSV file
-    public void writeApkCsvFile(String relNameVer, String csvFile) {
+    public void writeApkCsvFile(String csvFile) {
         // Find the apk directory
         // Feed location to this
         try {
@@ -331,7 +329,6 @@ class ReleaseParser {
                     "apk_name,package_name,apk_size,so_name,so_size\n");
             // Iterate all file entry in a release
             for (Entry entry : getFileEntries()) {
-                String pkgName = "";
                 AppInfo appinfo;
                 if (entry.getType() == Entry.EntryType.APK) {
                     appinfo = entry.getAppInfo();
@@ -354,6 +351,52 @@ class ReleaseParser {
                                 subEntry.getSize());
                     }
                 }
+            }
+            pWriter.flush();
+            pWriter.close();
+        } catch (IOException e) {
+            System.err.println("IOException:" + e.getMessage());
+        }
+    }
+
+    // Writes app permission and save as CSV
+    public void writePermissionCsvFile (String fingerprint,String csvFile){
+        try {
+            FileWriter fWriter = new FileWriter(csvFile);
+            PrintWriter pWriter = new PrintWriter(fWriter);
+            // Header
+            pWriter.printf(
+                    "build_fingerprint,permission");
+            for (PermissionList permission: getPermissionList()) {
+                pWriter.printf(
+                        "%s,%s\n",
+                        fingerprint,
+                        permission
+                );
+            }
+            pWriter.flush();
+            pWriter.close();
+        } catch (IOException e) {
+            System.err.println("IOException:" + e.getMessage());
+        }
+    }
+
+    // Writes properties and save as CSV
+    public void writePropertiesCsvFile (String relFolder, String fingerprint, String csvFile){
+        try {
+            //Write into csvFile
+            FileWriter fWriter = new FileWriter(csvFile);
+            PrintWriter pWriter = new PrintWriter(fWriter);
+            // Header
+            pWriter.printf("fingerprint,properties,values\n");
+            Map <String ,String> propertyMap = getProperties();
+            for (Map.Entry<String ,String> entry: propertyMap.entrySet()){
+                pWriter.printf(
+                        "%s,%s,%s\n",
+                        fingerprint,
+                        entry.getKey(),
+                        entry.getValue()
+                );
             }
             pWriter.flush();
             pWriter.close();
@@ -385,8 +428,61 @@ class ReleaseParser {
         }
     }
 
+    // Writes services and save as CSV
+    public void writeServiceCsvFile (String fingerprint, String csvFile){
+        try {
+            //Write into csvFile
+            FileWriter fWriter = new FileWriter(csvFile);
+            PrintWriter pWriter = new PrintWriter(fWriter);
+            // Header
+            pWriter.printf("fingerprint,properties,values\n");
+            for (Service services: getServiceList()){
+                pWriter.printf(
+                        "%s,%s\n",
+                        fingerprint,
+                        services
+                );
+            }
+            pWriter.flush();
+            pWriter.close();
+        } catch (IOException e) {
+            System.err.println("IOException:" + e.getMessage());
+        }
+    }
+
+
     public Collection<Entry> getFileEntries() throws IOException {
         return getReleaseContent().getEntries().values();
+    }
+
+    public Map<String, String> getProperties() throws IOException {
+        return getReleaseContent().getPropertiesMap();
+    }
+
+    public void getPermissions() throws IOException {
+        Collection<Entry> collectionEntry = getReleaseContent().getEntriesMap().values();
+        for (Entry entry: collectionEntry){
+            Map<String, PermissionList> permissionList = entry.getDevicePermissionsMap();
+            mPermissionList = permissionList.values();
+        }
+    }
+
+    public Collection<PermissionList> getPermissionList() throws IOException {
+        getPermissions();
+        return mPermissionList;
+    }
+
+    public void getService() throws IOException {
+        Collection<Entry> collectionEntry = getReleaseContent().getEntriesMap().values();
+        for (Entry entry: collectionEntry){
+            List<Service> servicesList =entry.getServicesList();
+            mServiceList = servicesList;
+        }
+    }
+
+    public List<Service> getServiceList() throws IOException {
+        getService();
+        return mServiceList;
     }
 
     public boolean isNotSimbolicLink(File file) {
