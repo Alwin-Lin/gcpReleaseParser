@@ -13,6 +13,14 @@
 	* Output can be found under releaseParserProj/build/libs
 * In Android Studio Add Configuration> Gradle> Gradle Project> releaseParserProj. Under Task> Run. Then apply
 	* To run, Run> Run...
+# TlDr
+1. downlaod proj, run uberjar
+2. Edit config, point path to jar to output uberjar
+3. program args -i ..\releaseParserSrc\tests\resources -o ..\out -a 28
+4. JRE point to C:\Program Files\Java\jdk-14.0.1
+5. Create the ..\out folder
+6. Run
+7. Verify at out folder
 ## Run the program
 * In comand line ```java -jar .\releaseParserProj\build\libs\releaseParserProj.jar```
 ## Run/Debug test
@@ -57,13 +65,3 @@ Here are some command lines that can be used for testing docker image
 	* Stops the running docker
 * docker ps
 	* Checks the running docker status 
-	
-	
-### Steps after downlaod
-1. downlaod proj, run uberjar
-2. Edit config, point path to jar to output uberjar
-3. program args -i ..\releaseParserSrc\tests\resources -o ..\out -a 28
-4. JRE point to C:\Program Files\Java\jdk-14.0.1
-5. Create the ..\out folder
-6. Run
-7. Verify at out folder
