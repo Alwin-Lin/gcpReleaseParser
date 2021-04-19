@@ -1,3 +1,4 @@
+![](https://user-images.githubusercontent.com/22556115/115168581-57844680-a070-11eb-87d4-3453441d88fe.jpg)
 # User manual
 1. Clone the project, run uberjar
 2. Edit config, point path to jar to output uberjar
@@ -43,6 +44,3 @@ Here are some command lines that can be used for testing docker image
 	* Stops the running docker
 * docker ps
 	* Checks the running docker status 
-
-# Current pipeline
-![](https://user-images.githubusercontent.com/22556115/115168581-57844680-a070-11eb-87d4-3453441d88fe.jpg)
