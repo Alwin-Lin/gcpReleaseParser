@@ -6,6 +6,13 @@
 5. Set JRE to jdk-14
 6. Run and check output folder for result
 
+## Additional outputs
+In addition to the default output found on [release parser](https://android.googlesource.com/platform/cts/+/refs/heads/master/tools/release-parser/), the following is added
+* ServicesList
+* PropertiesList
+* PermissionList
+* FileList
+
 # Google Cloud Build
 ## Build in Google Cloud Consoule
 This peoject can be adapted for Google Cloud Build with the following steps:
