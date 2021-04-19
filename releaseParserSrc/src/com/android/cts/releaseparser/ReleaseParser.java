@@ -388,7 +388,7 @@ class ReleaseParser{
             FileWriter fWriter = new FileWriter(csvFile);
             PrintWriter pWriter = new PrintWriter(fWriter);
             // Header
-            pWriter.printf("fingerprint,properties,values\n");
+            pWriter.printf("build_fingerprint,properties,values\n");
             Map <String ,String> propertyMap = getProperties();
             for (Map.Entry<String ,String> entry: propertyMap.entrySet()){
                 pWriter.printf(
