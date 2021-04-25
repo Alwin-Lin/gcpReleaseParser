@@ -2,20 +2,20 @@
 - Parse and process release files into CSV format, then store to BigQuerry for later use.
 ![](https://user-images.githubusercontent.com/22556115/116009384-32db2200-a5ce-11eb-87dc-e0aa025849b7.jpg)
 
-Modeled after etl pipeline, everything before Bigquerry is considered frontline.
+Modeled after etl pipeline, this project handels everything from extraction to load
 
-## Extraction
-* Release Parser extracts wanted data from target folder
-* In addition to the default output found on [release parser](https://android.googlesource.com/platform/cts/+/refs/heads/master/tools/release-parser/), the following is added
-	* ServicesList
-	* PropertiesList
-	* PermissionList
-	* FileList
+* Extraction
+	* Release Parser extracts wanted data from target folder
+	* In addition to the default output found on [release parser](https://android.googlesource.com/platform/cts/+/refs/heads/master/tools/release-parser/), the following is added
+		* ServicesList
+		* PropertiesList
+		* PermissionList
+		* FileList
 
-## Transformation
-* The extracted data is written and stored as CSV files
-## Load
-* Use the script inside uploadScript
+* Transformation
+	* The extracted data is written and stored as CSV files
+* Load
+	* Use the script inside uploadScript
 
 # Setup
 1. Clone and open the project, run uberjar
