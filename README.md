@@ -4,35 +4,26 @@
 
 Modeled after etl pipeline, everything before Bigquerry is considered frontline.
 
-* Data source
-	* Desingnated folder
-	* E.G. target files, BigQuerry
-* Ingenstion system
-	* Release parser
-* Processing system
-	* Release parser
-* Storage
-	* Output folder, CSV files, BigQuerry
-* Visualization
-	* DataStudio
+## Extraction
+* Release Parser extracts wanted data from target folder
+* In addition to the default output found on [release parser](https://android.googlesource.com/platform/cts/+/refs/heads/master/tools/release-parser/), the following is added
+	* ServicesList
+	* PropertiesList
+	* PermissionList
+	* FileList
 
-# User manual
-1. Clone the project, run uberjar
+## Transformation
+* The extracted data is written and stored as CSV files
+## Load
+* Use the script inside uploadScript
+
+# Setup
+1. Clone and open the project, run uberjar
 2. Edit config, point path to jar to output uberjar
 3. Create a output folder
 4. program args -i <target folder> -o <output folder> -a 28
 5. Set JRE to jdk-14
 6. Run and check output folder for result
-
-## Optional
-* Run the cmd files to upload respective files to Bigquerry	
-
-## Additional outputs
-In addition to the default output found on [release parser](https://android.googlesource.com/platform/cts/+/refs/heads/master/tools/release-parser/), the following is added
-* ServicesList
-* PropertiesList
-* PermissionList
-* FileList
 
 # Google Cloud Build
 ## Build in Google Cloud Consoule
