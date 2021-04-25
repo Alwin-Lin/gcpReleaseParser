@@ -55,3 +55,9 @@ Here are some command lines that can be used for testing docker image
 	* Stops the running docker
 * docker ps
 	* Checks the running docker status 
+
+# Notes and ToDo:
+- The key value pair of ro.product.cpu.abilist,arm64-v8a,armeabi-v7a,armeabi inside PropertiesList can not be uploaded properly
+- Finish data visualization at DataStudio
+- Automate testing and uploading
+	- 
