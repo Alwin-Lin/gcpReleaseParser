@@ -1,4 +1,15 @@
 ![](https://user-images.githubusercontent.com/22556115/115168581-57844680-a070-11eb-87d4-3453441d88fe.jpg)
+
+* Data source
+	* Desingnated folder 
+* Ingenstion system
+	* Release parser
+* Processing system
+	* Release parser
+* Storage
+	* Output folder, CSV files
+* Visualization
+	* BigQuerry
 # User manual
 1. Clone the project, run uberjar
 2. Edit config, point path to jar to output uberjar
