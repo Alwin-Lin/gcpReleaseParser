@@ -7,6 +7,9 @@
 5. Set JRE to jdk-14
 6. Run and check output folder for result
 
+## Optional
+* Run the cmd files to upload respective files to Bigquerry	
+
 ## Additional outputs
 In addition to the default output found on [release parser](https://android.googlesource.com/platform/cts/+/refs/heads/master/tools/release-parser/), the following is added
 * ServicesList
