@@ -1,6 +1,6 @@
 # What does it do?
 - Parse and process release files into CSV format, then store to BigQuerry for later use.
-![](https://user-images.githubusercontent.com/22556115/116009384-32db2200-a5ce-11eb-87dc-e0aa025849b7.jpg)
+![](https://user-images.githubusercontent.com/22556115/116011036-a170ad80-a5d7-11eb-9d20-cb38a64b7756.jpg)
 
 Modeled after etl pipeline, this project handels everything from extraction to load
 
