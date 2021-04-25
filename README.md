@@ -1,15 +1,19 @@
 ![](https://user-images.githubusercontent.com/22556115/115168581-57844680-a070-11eb-87d4-3453441d88fe.jpg)
 
+Modeled after etl pipeline, everything before Bigquerry is considered frontline.
+
 * Data source
-	* Desingnated folder 
+	* Desingnated folder
+	* E.G. target files, BigQuerry
 * Ingenstion system
 	* Release parser
 * Processing system
 	* Release parser
 * Storage
-	* Output folder, CSV files
+	* Output folder, CSV files, BigQuerry
 * Visualization
-	* BigQuerry
+	* DataStudio
+
 # User manual
 1. Clone the project, run uberjar
 2. Edit config, point path to jar to output uberjar
