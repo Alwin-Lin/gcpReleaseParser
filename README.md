@@ -1,6 +1,6 @@
 # What does it do?
 - Parse and process release files into CSV format, then store to BigQuerry for later use.
-![](https://user-images.githubusercontent.com/22556115/115168581-57844680-a070-11eb-87d4-3453441d88fe.jpg)
+![](https://user-images.githubusercontent.com/22556115/116006115-c0167a80-a5be-11eb-9561-be96e408f3d1.jpg)
 
 Modeled after etl pipeline, everything before Bigquerry is considered frontline.
 
