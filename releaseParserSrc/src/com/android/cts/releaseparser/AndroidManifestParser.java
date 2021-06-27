@@ -154,11 +154,23 @@ public class AndroidManifestParser extends FileParser {
 
                 switch (mElementName) {
                     case "manifest":
-                        if (key.equals("package")) {
-                            mAppInfoBuilder.setPackageName(value);
-                            processed = 1;
-                            break;
+                        switch (key) {
+                            case "package":
+                                mAppInfoBuilder.setPackageName(value);
+                                processed = 1;
+                                break;
+                            case "versionCode":
+                                mAppInfoBuilder.setVersionCode(value);
+                                processed = 1;
+                                break;
+                            case "versionName":
+                                mAppInfoBuilder.setVersionName(value);
+                                processed = 1;
+                                break;
+                            default:
+                                break;
                         }
+                        break;
                     case "uses-sdk":
                     case "application":
                     case "supports-screens":

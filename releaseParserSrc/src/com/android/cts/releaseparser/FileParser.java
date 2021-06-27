@@ -39,6 +39,7 @@ public class FileParser {
 
     // Target File Extensions
     public static final String APK_EXT_TAG = ".apk";
+    public static final String APEX_EXT_TAG = ".apex";
     public static final String JAR_EXT_TAG = ".jar";
     public static final String DEX_EXT_TAG = ".dex";
     public static final String ODEX_EXT_TAG = ".odex";
@@ -68,6 +69,8 @@ public class FileParser {
             return new SymbolicLinkParser(file);
         } else if (fName.endsWith(APK_EXT_TAG)) {
             return new ApkParser(file);
+        } else if (fName.endsWith(APEX_EXT_TAG)) {
+            return new ApexParser(file);
         } else if (fName.endsWith(CONFIG_EXT_TAG)) {
             return new TestModuleConfigParser(file);
         } else if (fName.endsWith(TEST_SUITE_TRADEFED_TAG)) {
@@ -179,7 +182,7 @@ public class FileParser {
 
     private static boolean isSymbolicLink(File f) {
         // Assumes 0b files are Symbolic Link
-        return (f.length() == 0);
+        return Files.isSymbolicLink(f.toPath());
     }
 
     public static int getIntLittleEndian(byte[] byteArray, int start) {

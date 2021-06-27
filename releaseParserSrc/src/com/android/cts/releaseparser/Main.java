@@ -47,18 +47,19 @@ public class Main {
             ReleaseParser relParser = new ReleaseParser(relFolder, filters);
             String relNameVer = relParser.getReleaseName();
             String relID = relParser.getReleaseId();
+
             // Generates fileListCsvFile
             relParser.writeFileListCsvFile(
                     relID, getPathString(outputPath, "%s-FileList.csv", relNameVer));
+            // Generates FeatureList.csv
+            relParser.writeFeatureListCsvFile(
+                    relID, getPathString(outputPath, "%s-FeatureList.csv", relNameVer));
+            // Generates ExeList.csv
+            relParser.writeExeListCsvFile(
+                    relID, getPathString(outputPath, "%s-ExeList.csv", relNameVer));
             // Generates releaseContentCsvFile
             relParser.writeReleaseContentCstFile(
                     relNameVer, getPathString(outputPath, "%s-ReleaseContent.csv", relNameVer));
-            // Generates apk so information in a csv file
-            relParser.writeApkCsvFile(
-                    getPathString(outputPath, "%s-Apk.csv", relNameVer));
-            // Generates permission list
-            relParser.writePermissionCsvFile(
-                    relID, getPathString(outputPath, "%s-PermissionList.csv", relNameVer));
             // Generates properties list
             relParser.writePropertiesCsvFile(
                     relFolder, relID, getPathString(outputPath, "%s-PropertiesList.csv", relNameVer));

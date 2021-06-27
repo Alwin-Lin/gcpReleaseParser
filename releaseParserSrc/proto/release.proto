@@ -338,6 +338,7 @@ message Entry {
         ART = 14;
         XML = 15;
         IMG = 16;
+		APEX = 17;
     }
     // Type
     EntryType type = 2;

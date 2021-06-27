@@ -26,6 +26,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -73,11 +74,15 @@ class ReleaseParser{
     private Collection<PermissionList> mPermissionList;
     private List<Service> mServiceList;
 
+    ReleaseParser(String folder) {
+        this(folder, null);
+    }
+
     ReleaseParser(String folder, String filter) {
         mFolderPath = folder;
+        mFilter = filter;
         File fFile = new File(mFolderPath);
         mRootPath = Paths.get(fFile.getAbsolutePath());
-        mFilter = filter;
         mEntries = new HashMap<String, Entry>();
     }
 
@@ -142,9 +147,10 @@ class ReleaseParser{
             return parseFolder(mFolderPath);
         } else {
             String [] children = mFilter.split(" ");
-            List<File> fileList = new ArrayList<>();
+            List<File> fileList = new ArrayList<File>();
             for (String child: children) {
                 File file = new File(mFolderPath, child);
+                fileList.add(file);
             }
             File [] fileArray = fileList.toArray(new File[0]);
             return parseFolder(fileArray, "");
@@ -167,7 +173,8 @@ class ReleaseParser{
 
         // walks through all files
         for (File file : fileList) {
-            if (file.isDirectory() && isNotSimbolicLink(file)){
+            if (file.isDirectory() && isNotSymbolicLink(file)){
+                // Parse every file in list
                 Entry.Builder subFolderEntry = parseFolder(file.getAbsolutePath());
                 if (folderRelativePath.isEmpty()) {
                     subFolderEntry.setParentFolder(ROOT_FOLDER_TAG);
@@ -265,7 +272,7 @@ class ReleaseParser{
                         "%s,%s,%s,%d,%s,%s,%s,%s,%d\n",
                         fingerPrint,
                         entry.getType(),
-                        getName(),
+                        entry.getName(),
                         entry.getSize(),
                         entry.getRelativePath(),
                         entry.getContentId(),
@@ -287,7 +294,7 @@ class ReleaseParser{
             PrintWriter pWriter = new PrintWriter(fWriter);
             // Header
             pWriter.printf(
-                    "release,type,name,size,relative_path,content_id,parent_folder,code_id,architecture,bits,dependencies,dynamic_loading_dependencies,services,package\n");
+                "release,type,name,size,path,content_id,parent_folder,code_id,architecture,bits,dependencies,dynamic_loading_dependencies,services,package\n");
             for (Entry entry : getFileEntries()) {
                 String pkgName = "";
                 if (entry.getType() == Entry.EntryType.APK) {
@@ -318,7 +325,7 @@ class ReleaseParser{
     }
 
     // Writes apk content to save as CSV file
-    public void writeApkCsvFile(String csvFile) {
+    public void writeExeListCsvFile(String fingerPrint, String csvFile) {
         // Find the apk directory
         // Feed location to this
         try {
@@ -326,32 +333,67 @@ class ReleaseParser{
             PrintWriter pWriter = new PrintWriter(fWriter);
             // Header
             pWriter.printf(
-                    "apk_name,package_name,apk_size,so_name,so_size\n");
+                "build_fingerprint,type,name,package,version,folder,size,bit,so_name,so_size\n");
             // Iterate all file entry in a release
             for (Entry entry : getFileEntries()) {
+                Entry.EntryType type =entry.getType();
+                String pkgName = "";
+                String version = "";
+                int bit = -1;
                 AppInfo appinfo;
-                if (entry.getType() == Entry.EntryType.APK) {
-                    appinfo = entry.getAppInfo();
-                } else {
-                    continue;
+                List<String> subPkgs = new ArrayList<String>();
+
+                switch (type) {
+                    case APK:
+                    case APEX:
+                        appinfo = entry.getAppInfo();
+                        pkgName = appinfo.getPackageName();
+                        version = appinfo.getVersionName();
+
+                        // Get name and size
+                        Collection<Entry> subEntries = appinfo.getPackageFileContent().getEntriesMap().values();
+                        for (Entry subEntry: subEntries) {
+                            if(subEntry.getName().endsWith(".so")) {
+                                subPkgs.add(
+                                        String.format(
+                                                "%d,%s,%d",
+                                                subEntry.getAbiBits(),
+                                                subEntry.getName(),
+                                                subEntry.getSize()));
+                            }
+                        }
+                        break;
+                    case EXE:
+                        pkgName = entry.getName();
+                        break;
+                    default:
+                        continue;
                 }
-                // gets apk_name,package_name,apk_size
-                String apkCVS3 = String.format("%s,%s,%d",
+
+                if (version.isEmpty()) {
+                    version = entry.getContentId();
+                }
+                String exeCsv = String.format("%s,%s,%s,%s,%s,%s,,%d",
+                        fingerPrint,
+                        type,
                         entry.getName(),
-                        appinfo.getPackageName(),
+                        pkgName,
+                        version,
+                        entry.getParentFolder(),
                         entry.getSize());
-                // get so_name,so_size
-                Collection < Entry > subEntries = appinfo.getPackageFileContent().getEntries().values();
-                for (Entry subEntry : subEntries) {
-                    if(subEntry.getName().endsWith(".so")) {
-                        pWriter.printf(
-                                "%s,%s,%d\n",
-                                apkCVS3,
-                                subEntry.getName(),
-                                subEntry.getSize());
+                if (subPkgs.isEmpty()) {
+                    pWriter.printf("%s,%d,\n",
+                            exeCsv,
+                            entry.getAbiBits());
+                } else {
+                    for(String subpkgCsv : subPkgs) {
+                        pWriter.printf("%s,%s\n",
+                                exeCsv,
+                                subpkgCsv);
                     }
                 }
             }
+
             pWriter.flush();
             pWriter.close();
         } catch (IOException e) {
@@ -360,19 +402,38 @@ class ReleaseParser{
     }
 
     // Writes app permission and save as CSV
-    public void writePermissionCsvFile (String fingerprint,String csvFile){
+    public void writeFeatureListCsvFile (String fingerprint,String csvFile){
         try {
             FileWriter fWriter = new FileWriter(csvFile);
             PrintWriter pWriter = new PrintWriter(fWriter);
             // Header
             pWriter.printf(
-                    "build_fingerprint,permission");
-            for (PermissionList permission: getPermissionList()) {
-                pWriter.printf(
-                        "%s,%s\n",
-                        fingerprint,
-                        permission
-                );
+                    "build_fingerprint,name,eleName,eleValue,path\n");
+            for (Entry entry : getFileEntries()) {
+                if (entry.getType() == Entry.EntryType.XML) {
+                    Collection<PermissionList> plc = entry.getDevicePermissionsMap().values();
+                    for (PermissionList pl: plc) {
+                        for (Permission perm: pl.getPermissionsList()) {
+                            if(perm.getElementsList().isEmpty()){
+                                pWriter.printf(
+                                        "%s,%s,,,%s\n",
+                                        fingerprint,
+                                        perm.getName(),
+                                        entry.getRelativePath());
+                            } else {
+                                for (Element ele: perm.getElementsList()) {
+                                    pWriter.printf(
+                                            "%s,%s,%s,%s,%s\n",
+                                            fingerprint,
+                                            perm.getName(),
+                                            ele.getName(),
+                                            ele.getValue(),
+                                            entry.getRelativePath());
+                                }
+                            }
+                        }
+                    }
+                }
             }
             pWriter.flush();
             pWriter.close();
@@ -485,7 +546,7 @@ class ReleaseParser{
         return mServiceList;
     }
 
-    public boolean isNotSimbolicLink(File file) {
+    public boolean isNotSymbolicLink(File file) {
         return ! Files.isSymbolicLink(file.toPath());
     }
 
