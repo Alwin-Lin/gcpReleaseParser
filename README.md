@@ -2,16 +2,17 @@
 - Parse and process release files into CSV format, then store to BigQuerry for later use.
 ![](https://user-images.githubusercontent.com/22556115/116011036-a170ad80-a5d7-11eb-9d20-cb38a64b7756.jpg)
 
-Modeled after etl pipeline, this project handels everything from extraction to load
+Modeled after ETL pipeline, this project handels everything from extraction to load
 
 * Extraction
 	* Release Parser extracts wanted data from target folder
-	* In addition to the default output found on [release parser](https://android.googlesource.com/platform/cts/+/refs/heads/master/tools/release-parser/), the following is added
-		* ServicesList
-		* PropertiesList
-		* PermissionList
-		* FileList
-
+		* <Release_Name>-FileList.csv, meta data for all target files, size, etc.
+		* <Release_Name>-FeatureList.csv
+		* <Release_Name>-ExeList.csv
+		* <Release_Name>-ReleaseContent.csv
+		* <Release_Name>-PropertiesList.csv
+		* <Release_Name>-ServicesList
+	* Added in function to extract content from APEX files, as well as parse symbolic links
 * Transformation
 	* The extracted data is written and stored as CSV files
 * Load
@@ -21,7 +22,9 @@ Modeled after etl pipeline, this project handels everything from extraction to l
 1. Clone and open the project, run uberjar
 2. Edit config, point path to jar to output uberjar
 3. Create a output folder
-4. program args -i <target folder> -o <output folder> -a 28
+4. program args -i <target folder> -o <output folder> -a 28 -f <SubDir1, SubDir2>
+	* -f allows you to specify what are the sub dir to be parsed
+	* If not specified, all files and dir in the folder will be parsed 
 5. Set JRE to jdk-14
 6. Run and check output folder for result
 
