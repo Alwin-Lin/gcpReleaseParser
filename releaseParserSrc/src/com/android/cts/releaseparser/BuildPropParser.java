@@ -50,7 +50,6 @@ public class BuildPropParser extends TextFileParser {
         }
     }
 
-
     public Map<String, String> getProperties() {
         if (mType == null) {
             parseFile();

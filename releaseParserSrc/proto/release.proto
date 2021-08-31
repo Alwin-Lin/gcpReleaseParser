@@ -302,8 +302,9 @@ message VdexInfo {
 }
 
 message Permission {
-    string name = 1;
-    repeated Element elements = 2;
+    string tag = 1;
+    string name = 2;
+    repeated Element elements = 3;
 }
 
 message PermissionList {
@@ -338,7 +339,7 @@ message Entry {
         ART = 14;
         XML = 15;
         IMG = 16;
-		APEX = 17;
+        APEX = 17;
     }
     // Type
     EntryType type = 2;
@@ -374,12 +375,6 @@ message Entry {
     map<string, string> properties = 19;
 }
 
-enum ReleaseType {
-    DEVICE_BUILD = 0;
-    TEST_SUITE = 1;
-    APP_DISTRIBUTION_PACKAGE = 2;
-}
-
 message ReleaseContent {
     // Name
     string name = 1;
@@ -395,6 +390,13 @@ message ReleaseContent {
     string content_id = 6;
     // Size in byte
     int64 size = 7;
+
+    enum ReleaseType {
+        UNKNOWN = 0;
+        ANDROID_BUILD = 1;
+        TEST_SUITE = 2;
+        APP_BUNDLE = 3;
+    }
     ReleaseType release_type = 8;
     // property map(key,value)
     map<string, string> properties = 9;

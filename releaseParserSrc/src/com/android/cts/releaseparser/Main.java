@@ -20,7 +20,10 @@ import com.android.cts.releaseparser.ReleaseProto.*;
 import com.google.protobuf.TextFormat;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
 
@@ -34,7 +37,7 @@ public class Main {
                     + "Options:\n"
                     + "\t-i PATH\t path to a release folder\n"
                     + "\t-o PATH\t path to output files\n"
-                    + "\t-f PATH\t Filter1, Filter2\n";
+                    + "\t-f Filter1,Filter2\n";
 
     public static void main(final String[] args) {
         try {
@@ -45,47 +48,49 @@ public class Main {
 
             // parse a release folder
             ReleaseParser relParser = new ReleaseParser(relFolder, filters);
-            String relNameVer = relParser.getReleaseName();
             String relID = relParser.getReleaseId();
 
-            // Generates fileListCsvFile
-            relParser.writeFileListCsvFile(
-                    relID, getPathString(outputPath, "%s-FileList.csv", relNameVer));
-            // Generates FeatureList.csv
-            relParser.writeFeatureListCsvFile(
-                    relID, getPathString(outputPath, "%s-FeatureList.csv", relNameVer));
+            // Create the output dir
+            mkDir(outputPath);
+
             // Generates ExeList.csv
             relParser.writeExeListCsvFile(
-                    relID, getPathString(outputPath, "%s-ExeList.csv", relNameVer));
+                    relID, getPathString(outputPath, "ExeList.csv"));
+            // Generates service list
+            relParser.writeServiceListCsvFile(
+                    relID, getPathString(outputPath,"ServiceList.csv"));
+            // Generates PermissionList.csv
+            relParser.writePermissionListCsvFile(
+                    relID, getPathString(outputPath, "PermissionList.csv"));
+            // Generates properties list
+            relParser.writePropertyListCsvFile(
+                    relFolder, relID, getPathString(outputPath, "PropertyList.csv"));
+            // Generates fileListCsvFile
+            relParser.writeFileListCsvFile(
+                    relID, getPathString(outputPath, "FileList.csv"));
             // Generates releaseContentCsvFile
             relParser.writeReleaseContentCstFile(
-                    relNameVer, getPathString(outputPath, "%s-ReleaseContent.csv", relNameVer));
-            // Generates properties list
-            relParser.writePropertiesCsvFile(
-                    relFolder, relID, getPathString(outputPath, "%s-PropertiesList.csv", relNameVer));
-            // Generates service list
-            relParser.writeServiceCsvFile(
-                    relID, getPathString(outputPath,"%s-ServicesList.csv", relNameVer));
+                    relID, getPathString(outputPath, "ReleaseContent.csv"));
 
             // Generates release content JSON file
             JsonPrinter jPrinter =
                     new JsonPrinter(
                             relParser.getReleaseContent(),
-                            getPathString(outputPath, "%s", relNameVer));
+                            getPathString(outputPath, "ReleaseContent"));
             jPrinter.write();
 
             // Write release content message to disk.
             ReleaseContent relContent = relParser.getReleaseContent();
             FileOutputStream output =
                     new FileOutputStream(
-                            getPathString(outputPath, "%s-ReleaseContent.pb", relNameVer));
+                            getPathString(outputPath, "ReleaseContent.pb"));
             relContent.writeTo(output);
             output.flush();
             output.close();
 
             FileOutputStream txtOutput =
                     new FileOutputStream(
-                            getPathString(outputPath, "%s-ReleaseContent.txt", relNameVer));
+                            getPathString(outputPath, "ReleaseContent.txt"));
             txtOutput.write(
                     TextFormat.printToString(relContent).getBytes(Charset.forName("UTF-8")));
             txtOutput.flush();
@@ -100,16 +105,16 @@ public class Main {
 
             // write Known Failus & etc. CSV files
             relParser.writeKnownFailureCsvFile(
-                    relNameVer, getPathString(outputPath, "%s-KnownFailure.csv", relNameVer));
+                    relID, getPathString(outputPath, "KnownFailure.csv"));
             tsParser.writeCsvFile(
-                    relNameVer, getPathString(outputPath, "%s-TestCase.csv", relNameVer));
+                    relID, getPathString(outputPath, "TestCase.csv"));
             tsParser.writeModuleCsvFile(
-                    relNameVer, getPathString(outputPath, "%s-TestModule.csv", relNameVer));
+                    relID, getPathString(outputPath, "TestModule.csv"));
 
             // Write test suite content message to disk.
             TestSuite testSuite = tsParser.getTestSuite();
             FileOutputStream tsOutput =
-                    new FileOutputStream(getPathString(outputPath, "%s-TestSuite.pb", relNameVer));
+                    new FileOutputStream(getPathString(outputPath, "TestSuite.pb"));
             testSuite.writeTo(tsOutput);
             tsOutput.flush();
             tsOutput.close();
@@ -119,11 +124,20 @@ public class Main {
         }
     }
 
-    public static String getPathString(String outputPath, String format, String id) {
-        return Paths.get(outputPath, String.format(format, id)).toString();
+    public static String getPathString(String outputPath, String name) {
+        return Paths.get(outputPath, name).toString();
     }
 
     private static Logger getLogger() {
         return Logger.getLogger(Main.class.getSimpleName());
+    }
+
+    static void mkDir(String dir) {
+        try {
+            Path p = Paths.get(dir);
+            Files.createDirectories(p);
+        } catch (IOException e) {
+            System.err.println("Failed to create dir:" + dir + e.getMessage());
+        }
     }
 }

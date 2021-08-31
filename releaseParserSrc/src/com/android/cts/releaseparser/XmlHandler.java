@@ -22,6 +22,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /** {@link DefaultHandler} */
 class XmlHandler extends DefaultHandler {
@@ -29,15 +31,99 @@ class XmlHandler extends DefaultHandler {
     public static final String PERMISSIONS_TAG = "permissions";
 
     // Element Tag
+    /**
+     * <permissions>
+     *     <permission name="android.permission.BLUETOOTH_ADMIN" >
+     *         <group gid="net_bt_admin" />
+     *     </permission>
+     *
+     *     <permission name="android.permission.BLUETOOTH" >
+     *         <group gid="net_bt" />
+     *     </permission>
+     * </permissions>
+     */
     public static final String PERMISSION_TAG = "permission";
+    public static final String DENY_PERMISSION_TAG = "deny-permission";
+
+    /**
+     * <permissions>
+     *     <assign-permission name="android.permission.UPDATE_APP_OPS_STATS" uid="statsd" />
+     * </permissions>
+     */
     public static final String ASSIGN_PERMISSION_TAG = "assign-permission";
-    public static final String LIBRARY_TAG = "library";
+
+    /**
+     * <permissions>
+     *    <allow-in-power-save package="com.android.providers.downloads" />
+     * </permissions>
+     */
     public static final String ALLOW_IN_POWER_SAVE_TAG = "allow-in-power-save";
-    public static final String SYSTEM_USER_WHITELISTED_TAG = "system-user-whitelisted-app";
-    public static final String PRIVAPP_PERMISSIONS_TAG = "privapp-permissions";
+
+    /**
+     * <permissions>
+     *    <allow-in-power-save-except-idle package="com.android.providers.calendar" />
+     * </permissions>
+     */
+    public static final String ALLOW_IN_POWER_SAVE_EXCEPT_IDLE_TAG = "allow-in-power-save-except-idle";
+
+    /**
+     * <permissions>
+     *    <allow-in-data-usage-save package="com.android.providers.downloads" />
+     * </permissions>
+     */
+    public static final String ALLOW_IN_DATA_USAGE_SAVE_TAG = "allow-in-data-usage-save";
+
+    /**
+     * <permissions>
+     *   <system-user-whitelisted-app package="com.android.settings" />
+     * </permissions>
+     */
+    public static final String SYSTEM_USER_ALISTED_APP_TAG = "system-user-whitelisted-app";
+
+    /**
+     * <permissions>
+     *    <system-user-blacklisted-app package="com.android.wallpaper.livepicker" />
+     * </permissions>
+     */
+    public static final String SYSTEM_USER_BLISTED_APP_TAG = "system-user-blacklisted-app";
+
+    /**
+     * <permissions>
+     *     <feature name="android.hardware.vulkan.version" version="4198400" />
+     * </permissions>
+     */
     public static final String FEATURE_TAG = "feature";
 
-    // Attribue Tag
+    /**
+     * <permissions>
+     *     <library name="android.test.base"
+     *             file="/system/framework/android.test.base.jar" />
+     * </permissions>
+     */
+    public static final String LIBRARY_TAG = "library";
+
+    /**
+     * <permissions>
+     *     <privapp-permissions package="android.ext.services">
+     *         <permission name="android.permission.PROVIDE_RESOLVER_RANKER_SERVICE" />
+     *         <permission name="android.permission.MONITOR_DEFAULT_SMS_PACKAGE" />
+     *     </privapp-permissions>
+     * </permissions>
+     */
+    public static final String PRIVAPP_PERMISSIONS_TAG = "privapp-permissions";
+
+    /**
+     * <permissions>
+     *      <split-permission name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"
+     *                       targetSdk="29">
+     *         <new-permission name="android.permission.ACTIVITY_RECOGNITION" />
+     *     </split-permission>
+     * </permissions>
+     */
+    public static final String SPLIT_PERMISSIONS_TAG = "split-permission";
+    public static final String NEW_PERMISSION_TAG = "new-permission";
+
+    // Attribute Tag
     private static final String NAME_TAG = "name";
     private static final String GID_TAG = "gid";
     private static final String UID_TAG = "uid";
@@ -45,33 +131,37 @@ class XmlHandler extends DefaultHandler {
     private static final String FILE_TAG = "file";
     private static final String PACKAGE_TAG = "package";
     private static final String VERSION_TAG = "version";
+    private static final String TARGET_SDK_TAG = "targetSdk";
 
+    private String mFileName;
     private HashMap<String, PermissionList> mPermissions;
-    private Permission.Builder mPermissionsBuilder;
+    private Permission.Builder mPermissionBuilder;
     private PermissionList.Builder mPermissionListBuilder;
-    private PermissionList.Builder mAssignPermissionsListBuilder;
-    private PermissionList.Builder mLibraryListBuilder;
-    private PermissionList.Builder mAllowInPowerSaveListBuilder;
-    private PermissionList.Builder mSystemUserWhitelistedListBuilder;
-    private PermissionList.Builder mPrivappPermissionsListBuilder;
-    private PermissionList.Builder mFeatureListBuilder;
+    private Permission.Builder mPrivPermissionBuilder;
+    private PermissionList.Builder mPrivPermissionListBuilder;
+    private Permission.Builder mSplitPermissionBuilder;
+    private PermissionList.Builder mSplitPermissionListBuilder;
 
     XmlHandler(String fileName) {
+        mFileName = fileName;
         mPermissions = new HashMap<String, PermissionList>();
+        newPermissionListBuilder();
+        newPrivPermissionListBuilder();
+    }
+
+    private void newPermissionListBuilder() {
         mPermissionListBuilder = PermissionList.newBuilder();
         mPermissionListBuilder.setName(PERMISSION_TAG);
-        mAssignPermissionsListBuilder = PermissionList.newBuilder();
-        mAssignPermissionsListBuilder.setName(ASSIGN_PERMISSION_TAG);
-        mLibraryListBuilder = PermissionList.newBuilder();
-        mLibraryListBuilder.setName(LIBRARY_TAG);
-        mAllowInPowerSaveListBuilder = PermissionList.newBuilder();
-        mAllowInPowerSaveListBuilder.setName(ALLOW_IN_POWER_SAVE_TAG);
-        mSystemUserWhitelistedListBuilder = PermissionList.newBuilder();
-        mSystemUserWhitelistedListBuilder.setName(SYSTEM_USER_WHITELISTED_TAG);
-        mPrivappPermissionsListBuilder = PermissionList.newBuilder();
-        mPrivappPermissionsListBuilder.setName(PRIVAPP_PERMISSIONS_TAG);
-        mFeatureListBuilder = PermissionList.newBuilder();
-        mFeatureListBuilder.setName(FEATURE_TAG);
+    }
+
+    private void newPrivPermissionListBuilder() {
+        mPrivPermissionListBuilder = PermissionList.newBuilder();
+        mPrivPermissionListBuilder.setName(PRIVAPP_PERMISSIONS_TAG);
+    }
+
+    private void newSplitPermissionListBuilder() {
+        mSplitPermissionListBuilder = PermissionList.newBuilder();
+        mSplitPermissionListBuilder.setName(PRIVAPP_PERMISSIONS_TAG);
     }
 
     public HashMap<String, PermissionList> getPermissions() {
@@ -84,66 +174,76 @@ class XmlHandler extends DefaultHandler {
         super.startElement(uri, localName, name, attributes);
 
         switch (localName) {
-            case PERMISSIONS_TAG:
-                // start permissions tree
-                break;
+            // 1
             case PERMISSION_TAG:
-                mPermissionsBuilder = Permission.newBuilder();
-                mPermissionsBuilder.setName(attributes.getValue(NAME_TAG));
+            case DENY_PERMISSION_TAG:
+            case ASSIGN_PERMISSION_TAG:
+            case ALLOW_IN_POWER_SAVE_TAG:
+            case ALLOW_IN_POWER_SAVE_EXCEPT_IDLE_TAG:
+            case ALLOW_IN_DATA_USAGE_SAVE_TAG:
+            case SYSTEM_USER_ALISTED_APP_TAG:
+            case SYSTEM_USER_BLISTED_APP_TAG:
+            case FEATURE_TAG:
+            case LIBRARY_TAG:
+            case SPLIT_PERMISSIONS_TAG:
+                mPermissionBuilder = Permission.newBuilder();
+                mPermissionBuilder.setTag(localName);
+                try {
+                    mPermissionBuilder.setName(attributes.getValue(NAME_TAG));
+                } catch (Exception e) {
+                    // allow-in-power-save, etc. have package instead of name
+                    mPermissionBuilder.setName(attributes.getValue(PACKAGE_TAG));
+                }
+                // processes attributes
+                // uid for assign-permission
+                addEle(UID_TAG, attributes);
+                // version for feature
+                addEle(VERSION_TAG, attributes);
+                // file for library
+                addEle(FILE_TAG, attributes);
+                // targetSdk for library
+                addEle(TARGET_SDK_TAG, attributes);
                 break;
+            // 2
             case GROUP_TAG:
-                if (mPermissionsBuilder != null) {
+                if (mPermissionBuilder != null) {
                     Element.Builder eleBuilder = Element.newBuilder();
                     eleBuilder.setName(GID_TAG);
                     eleBuilder.setValue(attributes.getValue(GID_TAG));
-                    mPermissionsBuilder.addElements(eleBuilder.build());
+                    mPermissionBuilder.addElements(eleBuilder.build());
                 }
                 break;
-            case ASSIGN_PERMISSION_TAG:
-                mPermissionsBuilder = Permission.newBuilder();
-                mPermissionsBuilder.setName(attributes.getValue(NAME_TAG));
-                String uid = attributes.getValue(UID_TAG);
-                if (uid != null) {
+            case NEW_PERMISSION_TAG:
+                if (mPermissionBuilder != null) {
                     Element.Builder eleBuilder = Element.newBuilder();
-                    eleBuilder.setName(UID_TAG);
-                    eleBuilder.setValue(uid);
-                    mPermissionsBuilder.addElements(eleBuilder.build());
+                    eleBuilder.setName(NEW_PERMISSION_TAG);
+                    eleBuilder.setValue(attributes.getValue("name"));
+                    mPermissionBuilder.addElements(eleBuilder.build());
                 }
                 break;
-            case LIBRARY_TAG:
-                mPermissionsBuilder = Permission.newBuilder();
-                mPermissionsBuilder.setName(attributes.getValue(NAME_TAG));
-                String file = attributes.getValue(FILE_TAG);
-                if (file != null) {
-                    Element.Builder eleBuilder = Element.newBuilder();
-                    eleBuilder.setName(FILE_TAG);
-                    eleBuilder.setValue(file);
-                    mPermissionsBuilder.addElements(eleBuilder.build());
-                }
-                break;
-            case ALLOW_IN_POWER_SAVE_TAG:
-                mPermissionsBuilder = Permission.newBuilder();
-                mPermissionsBuilder.setName(attributes.getValue(PACKAGE_TAG));
-                break;
-            case SYSTEM_USER_WHITELISTED_TAG:
-                mPermissionsBuilder = Permission.newBuilder();
-                mPermissionsBuilder.setName(attributes.getValue(PACKAGE_TAG));
-                break;
+            // 0.5
             case PRIVAPP_PERMISSIONS_TAG:
-                mPermissionsBuilder = Permission.newBuilder();
-                mPermissionsBuilder.setName(attributes.getValue(PACKAGE_TAG));
+                mPrivPermissionBuilder = Permission.newBuilder();
+                mPrivPermissionBuilder.setTag(PRIVAPP_PERMISSIONS_TAG);
+                mPrivPermissionBuilder.setName(attributes.getValue(PACKAGE_TAG));
                 break;
-            case FEATURE_TAG:
-                mPermissionsBuilder = Permission.newBuilder();
-                mPermissionsBuilder.setName(attributes.getValue(NAME_TAG));
-                String version = attributes.getValue(VERSION_TAG);
-                if (version != null) {
-                    Element.Builder eleBuilder = Element.newBuilder();
-                    eleBuilder.setName(VERSION_TAG);
-                    eleBuilder.setValue(version);
-                    mPermissionsBuilder.addElements(eleBuilder.build());
-                }
+            // 0
+            case PERMISSIONS_TAG:
+                // start permissions tree
                 break;
+            default:
+                getLogger().log(Level.WARNING, "File: " + mFileName);
+                getLogger().log(Level.WARNING, "ToDo: to parse xml element: " + localName);
+        }
+    }
+
+    private void addEle(String tag, Attributes attributes) {
+        String v = attributes.getValue(tag);
+        if (v != null) {
+            Element.Builder eleBuilder = Element.newBuilder();
+            eleBuilder.setName(tag);
+            eleBuilder.setValue(v);
+            mPermissionBuilder.addElements(eleBuilder.build());
         }
     }
 
@@ -151,59 +251,53 @@ class XmlHandler extends DefaultHandler {
     public void endElement(String uri, String localName, String name) throws SAXException {
         super.endElement(uri, localName, name);
         switch (localName) {
+            // 1
+            case PERMISSION_TAG:
+            case DENY_PERMISSION_TAG:
+            case ASSIGN_PERMISSION_TAG:
+            case ALLOW_IN_POWER_SAVE_TAG:
+            case ALLOW_IN_POWER_SAVE_EXCEPT_IDLE_TAG:
+            case ALLOW_IN_DATA_USAGE_SAVE_TAG:
+            case SYSTEM_USER_ALISTED_APP_TAG:
+            case SYSTEM_USER_BLISTED_APP_TAG:
+            case FEATURE_TAG:
+            case LIBRARY_TAG:
+            case SPLIT_PERMISSIONS_TAG:
+                mPermissionListBuilder.addPermissions(mPermissionBuilder.build());
+                mPermissionBuilder = null;
+                break;
+
+            //0.5
+            case PRIVAPP_PERMISSIONS_TAG:
+                if (mPermissionListBuilder.getPermissionsList().size() > 0) {
+                    convertToPrivPermission();
+                    mPrivPermissionListBuilder.addPermissions(mPrivPermissionBuilder.build());
+                    mPrivPermissionBuilder = null;
+                    newPermissionListBuilder();
+                }
+                break;
+            // 0
             case PERMISSIONS_TAG:
                 if (mPermissionListBuilder.getPermissionsList().size() > 0) {
                     mPermissions.put(PERMISSION_TAG, mPermissionListBuilder.build());
                 }
-                if (mAssignPermissionsListBuilder.getPermissionsList().size() > 0) {
-                    mPermissions.put(ASSIGN_PERMISSION_TAG, mAssignPermissionsListBuilder.build());
+                if (mPrivPermissionListBuilder.getPermissionsList().size() > 0) {
+                    mPermissions.put(PERMISSION_TAG, mPrivPermissionListBuilder.build());
                 }
-                if (mLibraryListBuilder.getPermissionsList().size() > 0) {
-                    mPermissions.put(LIBRARY_TAG, mLibraryListBuilder.build());
-                }
-                if (mAllowInPowerSaveListBuilder.getPermissionsList().size() > 0) {
-                    mPermissions.put(ALLOW_IN_POWER_SAVE_TAG, mAllowInPowerSaveListBuilder.build());
-                }
-                if (mSystemUserWhitelistedListBuilder.getPermissionsList().size() > 0) {
-                    mPermissions.put(
-                            SYSTEM_USER_WHITELISTED_TAG, mSystemUserWhitelistedListBuilder.build());
-                }
-                if (mPrivappPermissionsListBuilder.getPermissionsList().size() > 0) {
-                    mPermissions.put(
-                            PRIVAPP_PERMISSIONS_TAG, mPrivappPermissionsListBuilder.build());
-                }
-                if (mFeatureListBuilder.getPermissionsList().size() > 0) {
-                    mPermissions.put(FEATURE_TAG, mFeatureListBuilder.build());
-                }
-                break;
-            case PERMISSION_TAG:
-                mPermissionListBuilder.addPermissions(mPermissionsBuilder.build());
-                mPermissionsBuilder = null;
-                break;
-            case ASSIGN_PERMISSION_TAG:
-                mAssignPermissionsListBuilder.addPermissions(mPermissionsBuilder.build());
-                mPermissionsBuilder = null;
-                break;
-            case LIBRARY_TAG:
-                mLibraryListBuilder.addPermissions(mPermissionsBuilder.build());
-                mPermissionsBuilder = null;
-                break;
-            case ALLOW_IN_POWER_SAVE_TAG:
-                mAllowInPowerSaveListBuilder.addPermissions(mPermissionsBuilder.build());
-                mPermissionsBuilder = null;
-                break;
-            case SYSTEM_USER_WHITELISTED_TAG:
-                mSystemUserWhitelistedListBuilder.addPermissions(mPermissionsBuilder.build());
-                mPermissionsBuilder = null;
-                break;
-            case PRIVAPP_PERMISSIONS_TAG:
-                mPrivappPermissionsListBuilder.addPermissions(mPermissionsBuilder.build());
-                mPermissionsBuilder = null;
-                break;
-            case FEATURE_TAG:
-                mFeatureListBuilder.addPermissions(mPermissionsBuilder.build());
-                mPermissionsBuilder = null;
                 break;
         }
+    }
+
+    // add permissions in mPermissionListBuilder as elements in mPrivPermissionBuilder
+    private void convertToPrivPermission() {
+        for (Permission per : mPermissionListBuilder.getPermissionsList()) {
+            Element.Builder eleBuilder = Element.newBuilder();
+            eleBuilder.setName(per.getName());
+            mPrivPermissionBuilder.addElements(eleBuilder.build());
+        }
+    }
+
+    private static Logger getLogger() {
+        return Logger.getLogger(XmlHandler.class.getSimpleName());
     }
 }

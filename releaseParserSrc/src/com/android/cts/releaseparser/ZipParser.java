@@ -156,6 +156,8 @@ public class ZipParser extends FileParser {
                                     mDynamicLoadingDependencies.addAll(
                                             fParser.getDynamicLoadingDependencies());
                                 }
+                                entryBuilder.setAbiArchitecture(fParser.getAbiArchitecture());
+                                entryBuilder.setAbiBits(fParser.getAbiBits());
                                 entryBuilder.setAppInfo(fParser.getAppInfo());
                             } catch (IOException ex) {
                                 System.err.println(

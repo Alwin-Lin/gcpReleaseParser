@@ -181,7 +181,6 @@ public class FileParser {
     public void setAdditionalInfo() {}
 
     private static boolean isSymbolicLink(File f) {
-        // Assumes 0b files are Symbolic Link
         return Files.isSymbolicLink(f.toPath());
     }
 

@@ -36,7 +36,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 class ReleaseParser{
     private static final String ROOT_FOLDER_TAG = "/";
     // configuration option
@@ -67,11 +66,10 @@ class ReleaseParser{
     private static final String TESTCASES_FOLDER_FORMAT = "testcases/%s";
 
     private final String mFolderPath;
-    private Path mRootPath;
     private final String mFilter;
+    private Path mRootPath;
     private ReleaseContent.Builder mRelContentBuilder;
     private Map<String, Entry> mEntries;
-    private Collection<PermissionList> mPermissionList;
     private List<Service> mServiceList;
 
     ReleaseParser(String folder) {
@@ -106,15 +104,15 @@ class ReleaseParser{
     public ReleaseContent getReleaseContent() throws IOException {
         if (mRelContentBuilder == null) {
             mRelContentBuilder = ReleaseContent.newBuilder();
-            // default APP_DISTRIBUTION_PACKAGE if no BUILD_PROP nor TEST_SUITE_TRADEFED is found
-            mRelContentBuilder.setReleaseType(ReleaseType.APP_DISTRIBUTION_PACKAGE);
+            // default APP_BUNDLE if no build fingerprint nor TEST_SUITE_TRADEFED is found
+            mRelContentBuilder.setReleaseType(ReleaseContent.ReleaseType.APP_BUNDLE);
             // also add the root folder entry
             Entry.Builder fBuilder = parseFolderWithFilter();
 
             // Set Rel name
             String fingerPrint = getBuildFingerPrint();
             if (fingerPrint == null){
-                System.err.println("Release Name unknown!");
+                System.err.println("Release Name unknown! Using the dir name.");
                 File file = new File(mFolderPath);
                 String name = file.getName();
                 mRelContentBuilder.setName(name);
@@ -122,7 +120,6 @@ class ReleaseParser{
                 mRelContentBuilder.setReleaseId(name);
             } else {
                 mRelContentBuilder.setReleaseId(fingerPrint);
-                mRelContentBuilder.setReleaseType(ReleaseType.DEVICE_BUILD);
                 mRelContentBuilder.setName(getName());
                 mRelContentBuilder.setFullname(getFullName());
                 mRelContentBuilder.setBuildNumber(getBuildNumber());
@@ -162,7 +159,15 @@ class ReleaseParser{
         File folder = new File(fPath);
         Path folderPath = Paths.get(folder.getAbsolutePath());
         String folderRelativePath = mRootPath.relativize(folderPath).toString();
-        File[] fileList = folder.listFiles();
+        File[] fileList;
+        if (folder.isDirectory()) {
+            fileList = folder.listFiles();
+        } else {
+            // Just parse a file, e.g. zip
+            // Todo: ZipParser currently only parses SOs
+            fileList = new File[1];
+            fileList[0] = folder;
+        }
         return parseFolder(fileList, folderRelativePath);
     }
 
@@ -211,11 +216,12 @@ class ReleaseParser{
                         mRelContentBuilder.setBuildNumber(tstParser.getBuildNumber());
                         mRelContentBuilder.setTargetArch(tstParser.getTargetArch());
                         mRelContentBuilder.setVersion(tstParser.getVersion());
-                        mRelContentBuilder.setReleaseType(ReleaseType.TEST_SUITE);
+                        mRelContentBuilder.setReleaseType(ReleaseContent.ReleaseType.TEST_SUITE);
                         break;
                     case BUILD_PROP:
                         BuildPropParser bpParser = (BuildPropParser) fParser;
-                       mRelContentBuilder.putAllProperties(bpParser.getProperties());
+                        mRelContentBuilder.putAllProperties(bpParser.getProperties());
+                        mRelContentBuilder.setReleaseType(ReleaseContent.ReleaseType.ANDROID_BUILD);
                         break;
                     default:
                 }
@@ -373,7 +379,7 @@ class ReleaseParser{
                 if (version.isEmpty()) {
                     version = entry.getContentId();
                 }
-                String exeCsv = String.format("%s,%s,%s,%s,%s,%s,,%d",
+                String exeCsv = String.format("%s,%s,%s,%s,%s,%s,%d",
                         fingerPrint,
                         type,
                         entry.getName(),
@@ -382,7 +388,7 @@ class ReleaseParser{
                         entry.getParentFolder(),
                         entry.getSize());
                 if (subPkgs.isEmpty()) {
-                    pWriter.printf("%s,%d,\n",
+                    pWriter.printf("%s,%d,,\n",
                             exeCsv,
                             entry.getAbiBits());
                 } else {
@@ -402,13 +408,13 @@ class ReleaseParser{
     }
 
     // Writes app permission and save as CSV
-    public void writeFeatureListCsvFile (String fingerprint,String csvFile){
+    public void writePermissionListCsvFile(String fingerprint, String csvFile){
         try {
             FileWriter fWriter = new FileWriter(csvFile);
             PrintWriter pWriter = new PrintWriter(fWriter);
             // Header
             pWriter.printf(
-                    "build_fingerprint,name,eleName,eleValue,path\n");
+                    "build_fingerprint,tag,name,element,value,path\n");
             for (Entry entry : getFileEntries()) {
                 if (entry.getType() == Entry.EntryType.XML) {
                     Collection<PermissionList> plc = entry.getDevicePermissionsMap().values();
@@ -416,15 +422,17 @@ class ReleaseParser{
                         for (Permission perm: pl.getPermissionsList()) {
                             if(perm.getElementsList().isEmpty()){
                                 pWriter.printf(
-                                        "%s,%s,,,%s\n",
+                                        "%s,%s,%s,,,%s\n",
                                         fingerprint,
+                                        perm.getTag(),
                                         perm.getName(),
                                         entry.getRelativePath());
                             } else {
                                 for (Element ele: perm.getElementsList()) {
                                     pWriter.printf(
-                                            "%s,%s,%s,%s,%s\n",
+                                            "%s,%s,%s,%s,%s,%s\n",
                                             fingerprint,
+                                            perm.getTag(),
                                             perm.getName(),
                                             ele.getName(),
                                             ele.getValue(),
@@ -443,20 +451,46 @@ class ReleaseParser{
     }
 
     // Writes properties and save as CSV
-    public void writePropertiesCsvFile (String relFolder, String fingerprint, String csvFile){
+    public void writePropertyListCsvFile(String relFolder, String fingerprint, String csvFile){
         try {
             //Write into csvFile
             FileWriter fWriter = new FileWriter(csvFile);
             PrintWriter pWriter = new PrintWriter(fWriter);
             // Header
-            pWriter.printf("build_fingerprint,properties,values\n");
+            pWriter.printf("build_fingerprint,property,value\n");
             Map <String ,String> propertyMap = getProperties();
             for (Map.Entry<String ,String> entry: propertyMap.entrySet()){
                 pWriter.printf(
                         "%s,%s,%s\n",
                         fingerprint,
                         entry.getKey(),
-                        entry.getValue()
+                        entry.getValue().replace(',', ';')
+                );
+            }
+            pWriter.flush();
+            pWriter.close();
+        } catch (IOException e) {
+            System.err.println("IOException:" + e.getMessage());
+        }
+    }
+
+    // Writes services and save as CSV
+    public void writeServiceListCsvFile(String fingerprint, String csvFile){
+        try {
+            //Write into csvFile
+            FileWriter fWriter = new FileWriter(csvFile);
+            PrintWriter pWriter = new PrintWriter(fWriter);
+            // Header
+            pWriter.printf("build_fingerprint,service,class,user,group,file\n");
+            for (Service ser: getServiceList()) {
+                pWriter.printf(
+                        "%s,%s,%s,%s,%s,%s\n",
+                        fingerprint,
+                        ser.getName(),
+                        ser.getClazz(),
+                        ser.getUser(),
+                        ser.getGroup(),
+                        ser.getFile()
                 );
             }
             pWriter.flush();
@@ -489,29 +523,6 @@ class ReleaseParser{
         }
     }
 
-    // Writes services and save as CSV
-    public void writeServiceCsvFile (String fingerprint, String csvFile){
-        try {
-            //Write into csvFile
-            FileWriter fWriter = new FileWriter(csvFile);
-            PrintWriter pWriter = new PrintWriter(fWriter);
-            // Header
-            pWriter.printf("fingerprint,properties,values\n");
-            for (Service services: getServiceList()){
-                pWriter.printf(
-                        "%s,%s\n",
-                        fingerprint,
-                        services
-                );
-            }
-            pWriter.flush();
-            pWriter.close();
-        } catch (IOException e) {
-            System.err.println("IOException:" + e.getMessage());
-        }
-    }
-
-
     public Collection<Entry> getFileEntries() throws IOException {
         return getReleaseContent().getEntries().values();
     }
@@ -520,29 +531,18 @@ class ReleaseParser{
         return getReleaseContent().getPropertiesMap();
     }
 
-    public void getPermissions() throws IOException {
-        Collection<Entry> collectionEntry = getReleaseContent().getEntriesMap().values();
-        for (Entry entry: collectionEntry){
-            Map<String, PermissionList> permissionList = entry.getDevicePermissionsMap();
-            mPermissionList = permissionList.values();
-        }
-    }
-
-    public Collection<PermissionList> getPermissionList() throws IOException {
-        getPermissions();
-        return mPermissionList;
-    }
-
     public void getService() throws IOException {
+        mServiceList = new ArrayList<Service>();
         Collection<Entry> collectionEntry = getReleaseContent().getEntriesMap().values();
-        for (Entry entry: collectionEntry){
-            List<Service> servicesList =entry.getServicesList();
-            mServiceList = servicesList;
+        for (Entry entry: collectionEntry) {
+            mServiceList.addAll(entry.getServicesList());
         }
     }
 
     public List<Service> getServiceList() throws IOException {
-        getService();
+        if (mServiceList == null) {
+            getService();
+        }
         return mServiceList;
     }
 
