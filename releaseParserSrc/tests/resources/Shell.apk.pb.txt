@@ -5,6 +5,8 @@ content_id: "vkz3X7DyuwrFSkQw/RfAJhyf5/gG4FelAGXZaRvH09c="
 code_id: "f1b3224f f9855bc7 "
 app_info {
   package_name: "com.android.shell"
+  version_code: "0x1c"
+  version_name: "9"
   uses_permissions: "android.permission.SEND_SMS"
   uses_permissions: "android.permission.CALL_PHONE"
   uses_permissions: "android.permission.READ_PHONE_STATE"
@@ -128,12 +130,8 @@ app_info {
   providers: "android.support.v4.content.FileProvider"
   providers: ".BugreportStorageProvider"
   properties {
-    key: "compileSdkVersionCodename"
-    value: "9"
-  }
-  properties {
-    key: "coreApp"
-    value: "0xffffffff"
+    key: "minSdkVersion"
+    value: "0x1c"
   }
   properties {
     key: "targetSdkVersion"
@@ -144,39 +142,11 @@ app_info {
     value: "@0x7f050000"
   }
   properties {
-    key: "versionName"
-    value: "9"
-  }
-  properties {
-    key: "versionCode"
-    value: "0x1c"
-  }
-  properties {
-    key: "directBootAware"
+    key: "defaultToDeviceProtectedStorage"
     value: "0xffffffff"
   }
   properties {
-    key: "minSdkVersion"
-    value: "0x1c"
-  }
-  properties {
-    key: "sharedUserId"
-    value: "android.uid.shell"
-  }
-  properties {
-    key: "platformBuildVersionName"
-    value: "0x9"
-  }
-  properties {
-    key: "compileSdkVersion"
-    value: "0x1c"
-  }
-  properties {
-    key: "platformBuildVersionCode"
-    value: "0x1c"
-  }
-  properties {
-    key: "defaultToDeviceProtectedStorage"
+    key: "directBootAware"
     value: "0xffffffff"
   }
   external_api_packages {

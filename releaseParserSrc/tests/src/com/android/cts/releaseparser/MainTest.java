@@ -60,8 +60,7 @@ public class MainTest {
         Main.main(argArr);
         // Validate the parsed result and expected result.
         String expectedCvsString = ClassUtils.getResrouceContentString(getClass(), EXPECTED_MAIN_TEST_APK_CVS);
-        String parsedCvsString = ClassUtils.getFileContentString(getClass(), outputFilePATH + "/MainTest---Apk.csv");
-        File parseCvsFile = new File(outputFilePATH + "/MainTest---Apk.csv");
+        String parsedCvsString = ClassUtils.getFileContentString(getClass(), outputFilePATH + "/ExeList.csv");
         boolean isTwoEqual = expectedCvsString.equals(parsedCvsString);
         assertTrue(
                 String.format(

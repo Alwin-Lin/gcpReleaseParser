@@ -40,7 +40,11 @@ def protoSrc = srcRoot + '/proto'
 def libRoot = '../libs'
 // Java version must be greater than Java 9
 // For Windows 
-ext.java_home = System.getenv('JAVA_HOME') 
+ext.java_home = System.getenv('JAVA_HOME')
+if (ext.java_home == null) {
+    // Todo: change to the OS default instead of for macOS only
+    ext.java_home = '/usr'
+}
 def testExecutePath = java_home + '/bin/java'
 
 defaultTasks 'uberJar'
@@ -79,6 +83,7 @@ test {
 // Create \releaseParserProj\build\libs\releaseParserProj.jar
 // https:   //docs.gradle.org/current/userguide/working_with_files.html#sec:creating_uber_jar_example
 task uberJar(type: Jar) {
+    duplicatesStrategy = 'warn'
     manifest {
         attributes('Implementation-Title': project.name,
                 'Implementation-Version': project.version,
@@ -94,9 +99,9 @@ task uberJar(type: Jar) {
 }
 
 dependencies {
-    compile 'com.google.protobuf:protobuf-java:3.11.0'
+    implementation 'com.google.protobuf:protobuf-java:3.11.0'
     // Include every .jav under libRoot
-    compile fileTree(dir: libRoot, include: ["*.jar"])
-    compile group: 'commons-io', name: 'commons-io', version: '2.0.1'
+    implementation fileTree(dir: libRoot, include: ["*.jar"])
+    implementation group: 'commons-io', name: 'commons-io', version: '2.0.1'
 }
 

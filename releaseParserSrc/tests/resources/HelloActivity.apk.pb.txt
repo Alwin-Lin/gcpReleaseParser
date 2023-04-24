@@ -5,22 +5,12 @@ content_id: "NaBXq25sn0o/hUvkvNHfmI9vsBvpEnMV1o+PJWNtRwc="
 code_id: "f9855bc7 f1b3224f "
 app_info {
   package_name: "com.example.android.helloactivity"
+  version_code: "0x1c"
+  version_name: "Q"
   activities: "HelloActivity"
-  properties {
-    key: "compileSdkVersionCodename"
-    value: "Q"
-  }
   properties {
     key: "minSdkVersion"
     value: "Q"
-  }
-  properties {
-    key: "platformBuildVersionName"
-    value: "Q"
-  }
-  properties {
-    key: "compileSdkVersion"
-    value: "0x1c"
   }
   properties {
     key: "targetSdkVersion"
@@ -29,18 +19,6 @@ app_info {
   properties {
     key: "label"
     value: "Hello,"
-  }
-  properties {
-    key: "versionName"
-    value: "Q"
-  }
-  properties {
-    key: "platformBuildVersionCode"
-    value: "0x1c"
-  }
-  properties {
-    key: "versionCode"
-    value: "0x1c"
   }
   external_api_packages {
     name: "com.example.android.helloactivity"

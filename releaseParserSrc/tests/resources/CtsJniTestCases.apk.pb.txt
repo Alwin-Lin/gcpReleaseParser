@@ -117,42 +117,20 @@ dynamic_loading_dependencies: "libwebviewchromium_plat_support.so"
 dynamic_loading_dependencies: "libexpat.so"
 app_info {
   package_name: "android.jni.cts"
+  version_code: "0x1c"
+  version_name: "Q"
   uses_libraries {
     name: "android.test.runner"
     required: "android.test.runner"
   }
   uses_permissions: "android.permission.DISABLE_KEYGUARD"
   properties {
-    key: "compileSdkVersionCodename"
-    value: "Q"
-  }
-  properties {
     key: "minSdkVersion"
     value: "Q"
   }
   properties {
-    key: "platformBuildVersionName"
-    value: "Q"
-  }
-  properties {
-    key: "compileSdkVersion"
-    value: "0x1c"
-  }
-  properties {
     key: "targetSdkVersion"
     value: "Q"
-  }
-  properties {
-    key: "versionName"
-    value: "Q"
-  }
-  properties {
-    key: "platformBuildVersionCode"
-    value: "0x1c"
-  }
-  properties {
-    key: "versionCode"
-    value: "0x1c"
   }
   external_api_packages {
     name: "android.jni.cts"
@@ -4501,6 +4479,8 @@ app_info {
         type: FILE
         size: 11272
         content_id: "10b330b "
+        abi_architecture: "arm"
+        abi_bits: 64
         app_info {
           package_name: "libjninamespacea2.so"
           external_api_packages {
@@ -4535,6 +4515,8 @@ app_info {
         type: FILE
         size: 11272
         content_id: "b5b67796 "
+        abi_architecture: "arm"
+        abi_bits: 64
         app_info {
           package_name: "libjninamespaceb.so"
           external_api_packages {
@@ -4578,6 +4560,8 @@ app_info {
         type: FILE
         size: 657000
         content_id: "69cfa42b "
+        abi_architecture: "arm"
+        abi_bits: 32
         app_info {
           package_name: "libc++_shared.so"
           external_api_packages {
@@ -4927,6 +4911,8 @@ app_info {
         type: FILE
         size: 1058904
         content_id: "5937cb71 "
+        abi_architecture: "arm"
+        abi_bits: 64
         app_info {
           package_name: "libc++_shared.so"
           external_api_packages {
@@ -5345,6 +5331,8 @@ app_info {
         type: FILE
         size: 11272
         content_id: "10abeac "
+        abi_architecture: "arm"
+        abi_bits: 64
         app_info {
           package_name: "libjninamespacea1.so"
           external_api_packages {
@@ -5379,6 +5367,8 @@ app_info {
         type: FILE
         size: 20192
         content_id: "2965562f "
+        abi_architecture: "arm"
+        abi_bits: 32
         app_info {
           package_name: "libjni_test_dlclose.so"
           external_api_packages {
@@ -5440,6 +5430,8 @@ app_info {
         type: FILE
         size: 677128
         content_id: "e03f4151 "
+        abi_architecture: "arm"
+        abi_bits: 32
         app_info {
           package_name: "libjnitest.so"
           external_api_packages {
@@ -5936,6 +5928,8 @@ app_info {
         type: FILE
         size: 1036840
         content_id: "541bcfcb "
+        abi_architecture: "arm"
+        abi_bits: 64
         app_info {
           package_name: "libjnitest.so"
           external_api_packages {
@@ -6402,6 +6396,8 @@ app_info {
         type: FILE
         size: 20284
         content_id: "dc341ec5 "
+        abi_architecture: "arm"
+        abi_bits: 32
         app_info {
           package_name: "libjninamespacea2.so"
           external_api_packages {
@@ -6472,6 +6468,8 @@ app_info {
         type: FILE
         size: 11224
         content_id: "ace0e712 "
+        abi_architecture: "arm"
+        abi_bits: 64
         app_info {
           package_name: "libjnicommon.so"
           external_api_packages {
@@ -6494,6 +6492,8 @@ app_info {
         type: FILE
         size: 20288
         content_id: "dc33aa66 "
+        abi_architecture: "arm"
+        abi_bits: 32
         app_info {
           package_name: "libjninamespacea1.so"
           external_api_packages {
@@ -6564,6 +6564,8 @@ app_info {
         type: FILE
         size: 20228
         content_id: "bdee0f18 "
+        abi_architecture: "arm"
+        abi_bits: 32
         app_info {
           package_name: "libjnicommon.so"
           external_api_packages {
@@ -6625,6 +6627,8 @@ app_info {
         type: FILE
         size: 205044
         content_id: "7a3c63cb "
+        abi_architecture: "arm"
+        abi_bits: 32
         app_info {
           package_name: "libnativehelper_compat_libc++.so"
           external_api_packages {
@@ -6848,6 +6852,8 @@ app_info {
         type: FILE
         size: 332808
         content_id: "88e93f11 "
+        abi_architecture: "arm"
+        abi_bits: 64
         app_info {
           package_name: "libnativehelper_compat_libc++.so"
           external_api_packages {
@@ -7050,6 +7056,8 @@ app_info {
         type: FILE
         size: 20288
         content_id: "ac442c9c "
+        abi_architecture: "arm"
+        abi_bits: 32
         app_info {
           package_name: "libjninamespaceb.so"
           external_api_packages {
@@ -7138,6 +7146,8 @@ app_info {
         type: FILE
         size: 11000
         content_id: "74c870f5 "
+        abi_architecture: "arm"
+        abi_bits: 64
         app_info {
           package_name: "libjni_test_dlclose.so"
           external_api_packages {

@@ -3,10 +3,11 @@ type: XML
 size: 902
 content_id: "4mumUfnT2Ikv63sHKqXR9RrCpentnPxm9b8Wl1W8bmQ="
 device_permissions {
-  key: "feature"
+  key: "permission"
   value {
-    name: "feature"
+    name: "permission"
     permissions {
+      tag: "feature"
       name: "android.hardware.vulkan.version"
       elements {
         name: "version"
