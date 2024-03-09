@@ -408,4 +408,31 @@ message ReleaseContent {
     string target_arch = 12;
     repeated string known_failures = 13;
 }
+
+message Activity {
+  // Package
+  string package = 1;
+  // Activity
+  string activity = 2;
+}
+
+message ActivityList {
+  string name = 1;
+  repeated Activity activities = 2;
+}
+
+message ResolverCategory {
+  string name = 1;
+  map<string, ActivityList> types = 2;
+}
+
+message ResolverTable {
+  string name = 1;
+  map<string, ResolverCategory> resolver_categories = 2;
+}
+
+message Resolver {
+  string name = 1;
+  map<string, ResolverTable> resolver_tables = 2;
+}
 // [END messages]

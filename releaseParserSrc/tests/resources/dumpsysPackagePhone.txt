@@ -1,0 +1,721 @@
+Activity Resolver Table:
+  Full MIME Types:
+      vnd.android.cursor.item/sim-contact:
+        f07cd8c com.android.phone/.SimContacts filter d3b5cd5
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          StaticType: "vnd.android.cursor.item/sim-contact"
+        a4d9cea com.android.phone/.settings.fdn.FdnList filter fd74bdb
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          StaticType: "vnd.android.cursor.item/sim-contact"
+
+  Base MIME Types:
+      vnd.android.cursor.item:
+        f07cd8c com.android.phone/.SimContacts filter d3b5cd5
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          StaticType: "vnd.android.cursor.item/sim-contact"
+        a4d9cea com.android.phone/.settings.fdn.FdnList filter fd74bdb
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          StaticType: "vnd.android.cursor.item/sim-contact"
+
+  Schemes:
+      tel:
+        484d363 com.android.phone/.EmergencyDialer filter 265819
+          Action: "com.android.phone.EmergencyDialer.DIAL"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "tel"
+        484d363 com.android.phone/.EmergencyDialer filter 66742bf
+          Action: "android.intent.action.DIAL_EMERGENCY"
+          Category: "android.intent.category.DEFAULT"
+          Scheme: "tel"
+
+  Non-Data Actions:
+      android.telephony.euicc.action.RENAME_SUBSCRIPTION_PRIVILEGED:
+        14509c0 com.android.phone/.euicc.EuiccPrivilegedActionUiDispatcherActivity filter dddd6f9
+          Action: "android.telephony.euicc.action.TOGGLE_SUBSCRIPTION_PRIVILEGED"
+          Action: "android.telephony.euicc.action.DELETE_SUBSCRIPTION_PRIVILEGED"
+          Action: "android.telephony.euicc.action.RENAME_SUBSCRIPTION_PRIVILEGED"
+          Category: "android.intent.category.DEFAULT"
+          mPriority=1000, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      com.android.phone.CallFeaturesSetting.ADD_VOICEMAIL:
+        af7a284 com.android.phone/.settings.VoicemailSettingsActivity filter 50c9a6d
+          Action: "com.android.phone.CallFeaturesSetting.ADD_VOICEMAIL"
+          Category: "android.intent.category.DEFAULT"
+      android.telecom.action.CHANGE_PHONE_ACCOUNTS:
+        9612f16 com.android.phone/.settings.PhoneAccountSettingsActivity filter bbdf097
+          Action: "android.telecom.action.CHANGE_PHONE_ACCOUNTS"
+          Category: "android.intent.category.DEFAULT"
+      android.telephony.euicc.action.DELETE_SUBSCRIPTION_PRIVILEGED:
+        14509c0 com.android.phone/.euicc.EuiccPrivilegedActionUiDispatcherActivity filter dddd6f9
+          Action: "android.telephony.euicc.action.TOGGLE_SUBSCRIPTION_PRIVILEGED"
+          Action: "android.telephony.euicc.action.DELETE_SUBSCRIPTION_PRIVILEGED"
+          Action: "android.telephony.euicc.action.RENAME_SUBSCRIPTION_PRIVILEGED"
+          Category: "android.intent.category.DEFAULT"
+          mPriority=1000, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      android.intent.action.MAIN:
+        e2a3678 com.android.phone/.GsmUmtsCallOptions filter d61f151
+          Action: "android.intent.action.MAIN"
+        fe09db6 com.android.phone/.CdmaCallOptions filter 374cab7
+          Action: "android.intent.action.MAIN"
+        f084224 com.android.phone/.GsmUmtsCallForwardOptions filter 683518d
+          Action: "android.intent.action.MAIN"
+        8d0df42 com.android.phone/.GsmUmtsCallBarringOptions filter 4015b53
+          Action: "android.intent.action.MAIN"
+        3995c90 com.android.phone/.GsmUmtsAdditionalCallOptions filter 9e07989
+          Action: "android.intent.action.MAIN"
+        291ad8e com.android.phone/.settings.fdn.FdnSetting filter 4bc59af
+          Action: "android.intent.action.MAIN"
+        3dfb1bc com.android.phone/.EnableIccPinScreen filter 1ce2545
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.DEVELOPMENT_PREFERENCE"
+        c7f149a com.android.phone/.ChangeIccPinScreen filter 37ee1cb
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.DEVELOPMENT_PREFERENCE"
+        3d42da8 com.android.phone/.CallFeaturesSetting filter f30d0c1
+          Action: "android.intent.action.VIEW"
+          Action: "android.intent.action.MAIN"
+          Action: "android.telecom.action.SHOW_CALL_SETTINGS"
+          Category: "android.intent.category.DEFAULT"
+        da9e066 com.android.phone/.settings.AccessibilitySettingsActivity filter 897cfa7
+          Action: "android.intent.action.MAIN"
+          Action: "android.telecom.action.SHOW_CALL_ACCESSIBILITY_SETTINGS"
+          Category: "android.intent.category.DEFAULT"
+        54250d8 com.android.phone/com.android.services.telephony.sip.SipSettings filter ee6c31
+          Action: "android.intent.action.MAIN"
+          Action: "android.net.sip.NOTIFY"
+        de6ff33 com.android.phone/.settings.RadioInfo filter 18e62f0
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.DEVELOPMENT_PREFERENCE"
+        1657069 com.android.phone/.settings.BandMode filter aa70aee
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.VOICE_LAUNCH"
+      android.intent.action.VIEW:
+        3d42da8 com.android.phone/.CallFeaturesSetting filter f30d0c1
+          Action: "android.intent.action.VIEW"
+          Action: "android.intent.action.MAIN"
+          Action: "android.telecom.action.SHOW_CALL_SETTINGS"
+          Category: "android.intent.category.DEFAULT"
+      android.telephony.action.SHOW_NOTICE_ECM_BLOCK_OTHERS:
+        65101ec com.android.phone/.EmergencyCallbackModeExitDialog filter 79be9b5
+          Action: "com.android.phone.action.ACTION_SHOW_ECM_EXIT_DIALOG"
+          Action: "android.telephony.action.SHOW_NOTICE_ECM_BLOCK_OTHERS"
+          Category: "android.intent.category.DEFAULT"
+      android.telephony.euicc.action.MANAGE_EMBEDDED_SUBSCRIPTIONS:
+        c127c54 com.android.phone/.euicc.EuiccUiDispatcherActivity filter 2b8b7fd
+          Action: "android.telephony.euicc.action.MANAGE_EMBEDDED_SUBSCRIPTIONS"
+          Action: "android.telephony.euicc.action.PROVISION_EMBEDDED_SUBSCRIPTION"
+          Category: "android.intent.category.DEFAULT"
+          mPriority=1000, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      android.telephony.euicc.action.PROVISION_EMBEDDED_SUBSCRIPTION:
+        c127c54 com.android.phone/.euicc.EuiccUiDispatcherActivity filter 2b8b7fd
+          Action: "android.telephony.euicc.action.MANAGE_EMBEDDED_SUBSCRIPTIONS"
+          Action: "android.telephony.euicc.action.PROVISION_EMBEDDED_SUBSCRIPTION"
+          Category: "android.intent.category.DEFAULT"
+          mPriority=1000, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      android.telephony.euicc.action.TOGGLE_SUBSCRIPTION_PRIVILEGED:
+        14509c0 com.android.phone/.euicc.EuiccPrivilegedActionUiDispatcherActivity filter dddd6f9
+          Action: "android.telephony.euicc.action.TOGGLE_SUBSCRIPTION_PRIVILEGED"
+          Action: "android.telephony.euicc.action.DELETE_SUBSCRIPTION_PRIVILEGED"
+          Action: "android.telephony.euicc.action.RENAME_SUBSCRIPTION_PRIVILEGED"
+          Category: "android.intent.category.DEFAULT"
+          mPriority=1000, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      android.telecom.action.CONFIGURE_PHONE_ACCOUNT:
+        595d84a com.android.phone/com.android.services.telephony.sip.SipPhoneAccountSettingsActivity filter befd3bb
+          Action: "android.telecom.action.CONFIGURE_PHONE_ACCOUNT"
+          Category: "android.intent.category.DEFAULT"
+      android.intent.action.DIAL_EMERGENCY:
+        484d363 com.android.phone/.EmergencyDialer filter b8150de
+          Action: "android.intent.action.DIAL_EMERGENCY"
+          Category: "android.intent.category.DEFAULT"
+      android.telecom.action.SHOW_CALL_ACCESSIBILITY_SETTINGS:
+        da9e066 com.android.phone/.settings.AccessibilitySettingsActivity filter 897cfa7
+          Action: "android.intent.action.MAIN"
+          Action: "android.telecom.action.SHOW_CALL_ACCESSIBILITY_SETTINGS"
+          Category: "android.intent.category.DEFAULT"
+      android.telecom.action.SHOW_CALL_SETTINGS:
+        3d42da8 com.android.phone/.CallFeaturesSetting filter f30d0c1
+          Action: "android.intent.action.VIEW"
+          Action: "android.intent.action.MAIN"
+          Action: "android.telecom.action.SHOW_CALL_SETTINGS"
+          Category: "android.intent.category.DEFAULT"
+      android.telephony.euicc.action.START_EUICC_ACTIVATION:
+        c8a963e com.android.phone/.euicc.EuiccPublicActionUiDispatcherActivity filter 2bd0c9f
+          Action: "android.telephony.euicc.action.START_EUICC_ACTIVATION"
+          Category: "android.intent.category.DEFAULT"
+          mPriority=1000, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      android.telephony.action.CONFIGURE_VOICEMAIL:
+        af7a284 com.android.phone/.settings.VoicemailSettingsActivity filter ab926a2
+          Action: "android.telephony.action.CONFIGURE_VOICEMAIL"
+          Category: "android.intent.category.DEFAULT"
+          mPriority=1000, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      com.android.phone.action.ACTION_SHOW_ECM_EXIT_DIALOG:
+        65101ec com.android.phone/.EmergencyCallbackModeExitDialog filter 79be9b5
+          Action: "com.android.phone.action.ACTION_SHOW_ECM_EXIT_DIALOG"
+          Action: "android.telephony.action.SHOW_NOTICE_ECM_BLOCK_OTHERS"
+          Category: "android.intent.category.DEFAULT"
+      android.net.sip.NOTIFY:
+        54250d8 com.android.phone/com.android.services.telephony.sip.SipSettings filter ee6c31
+          Action: "android.intent.action.MAIN"
+          Action: "android.net.sip.NOTIFY"
+      android.telephony.euicc.action.RESOLVE_ERROR:
+        b639cf2 com.android.phone/.euicc.EuiccResolutionUiDispatcherActivity filter 867bf43
+          Action: "android.telephony.euicc.action.RESOLVE_ERROR"
+          Category: "android.intent.category.DEFAULT"
+          mPriority=1000, mOrder=0, mHasStaticPartialTypes=false, mHasDynamicPartialTypes=false
+      com.android.phone.EmergencyDialer.DIAL:
+        484d363 com.android.phone/.EmergencyDialer filter 6885b60
+          Action: "com.android.phone.EmergencyDialer.DIAL"
+          Category: "android.intent.category.DEFAULT"
+
+  MIME Typed Actions:
+      android.intent.action.VIEW:
+        f07cd8c com.android.phone/.SimContacts filter d3b5cd5
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          StaticType: "vnd.android.cursor.item/sim-contact"
+        a4d9cea com.android.phone/.settings.fdn.FdnList filter fd74bdb
+          Action: "android.intent.action.VIEW"
+          Category: "android.intent.category.DEFAULT"
+          StaticType: "vnd.android.cursor.item/sim-contact"
+
+Receiver Resolver Table:
+  Non-Data Actions:
+      android.telephony.action.CARRIER_CONFIG_CHANGED:
+        885b8f com.android.phone/.otasp.OtaspSimStateReceiver filter 58ebe1c
+          Action: "android.telephony.action.CARRIER_CONFIG_CHANGED"
+        9c1c3a1 com.android.phone/.vvm.VvmSimStateTracker filter a189c6
+          Action: "android.intent.action.BOOT_COMPLETED"
+          Action: "android.telephony.action.CARRIER_CONFIG_CHANGED"
+          Action: "android.intent.action.SIM_STATE_CHANGED"
+      android.intent.action.SIM_STATE_CHANGED:
+        9c1c3a1 com.android.phone/.vvm.VvmSimStateTracker filter a189c6
+          Action: "android.intent.action.BOOT_COMPLETED"
+          Action: "android.telephony.action.CARRIER_CONFIG_CHANGED"
+          Action: "android.intent.action.SIM_STATE_CHANGED"
+      android.intent.action.BOOT_COMPLETED:
+        9c1c3a1 com.android.phone/.vvm.VvmSimStateTracker filter a189c6
+          Action: "android.intent.action.BOOT_COMPLETED"
+          Action: "android.telephony.action.CARRIER_CONFIG_CHANGED"
+          Action: "android.intent.action.SIM_STATE_CHANGED"
+      com.android.internal.provider.action.VOICEMAIL_SMS_RECEIVED:
+        c3921ab com.android.phone/.vvm.VvmSmsReceiver filter 1d7a008
+          Action: "com.android.internal.provider.action.VOICEMAIL_SMS_RECEIVED"
+      android.net.sip.action.SIP_INCOMING_CALL:
+        15baa25 com.android.phone/com.android.services.telephony.sip.SipIncomingCallReceiver filter f7ce7fa
+          Action: "android.net.sip.action.SIP_INCOMING_CALL"
+
+Service Resolver Table:
+  Non-Data Actions:
+      android.service.simActivation.SimActivationService:
+        1e62d87 com.android.phone/.otasp.OtaspActivationService filter e4ab4b4 permission android.permission.MODIFY_PHONE_STATE
+          Action: "android.service.simActivation.SimActivationService"
+      android.telephony.data.DataService:
+        929cb9b com.android.phone/com.android.internal.telephony.dataconnection.CellularDataService filter 7b71b38 permission android.permission.BIND_TELEPHONY_DATA_SERVICE
+          Action: "android.telephony.data.DataService"
+      android.telecom.ConnectionService:
+        a6e1b23 com.android.phone/com.android.services.telephony.sip.SipConnectionService filter d386820 permission android.permission.BIND_TELECOM_CONNECTION_SERVICE
+          Action: "android.telecom.ConnectionService"
+        3fd467f com.android.phone/com.android.services.telephony.TelephonyConnectionService filter 38be64c permission android.permission.BIND_TELECOM_CONNECTION_SERVICE
+          Action: "android.telecom.ConnectionService"
+      com.android.phone.TelephonyDebugService:
+        15f8dd com.android.phone/.TelephonyDebugService filter 31c7c52 permission android.permission.DUMP
+          Action: "com.android.phone.TelephonyDebugService"
+      android.net.sip.action.START_SIP:
+        97e45d9 com.android.phone/com.android.services.telephony.sip.components.TelephonySipService filter 2e20b9e
+          Action: "android.net.sip.action.START_SIP"
+      android.telephony.NetworkService:
+        d846695 com.android.phone/com.android.internal.telephony.CellularNetworkService filter 4df43aa permission android.permission.BIND_TELEPHONY_NETWORK_SERVICE
+          Action: "android.telephony.NetworkService"
+
+Registered ContentProviders:
+  com.android.phone/.IccProvider:
+    Provider{3ef1897 com.android.phone/.IccProvider}
+  com.android.phone/.ServiceStateProvider:
+    Provider{215aa84 com.android.phone/.ServiceStateProvider}
+
+ContentProvider Authorities:
+  [icc]:
+    Provider{3ef1897 com.android.phone/.IccProvider}
+      applicationInfo=ApplicationInfo{cb15587 com.android.phone}
+  [service-state]:
+    Provider{215aa84 com.android.phone/.ServiceStateProvider}
+      applicationInfo=ApplicationInfo{cfabcb4 com.android.phone}
+
+Key Set Manager:
+  [com.android.phone]
+      Signing KeySets: 2
+
+Packages:
+  Package [com.android.phone] (f75ed92):
+    userId=1001
+    sharedUser=SharedUserSetting{c02a733 android.uid.phone/1001}
+    pkg=Package{84eaf0 com.android.phone}
+    codePath=/system/priv-app/TeleService
+    resourcePath=/system/priv-app/TeleService
+    legacyNativeLibraryDir=/system/priv-app/TeleService/lib
+    primaryCpuAbi=null
+    secondaryCpuAbi=null
+    versionCode=30 minSdk=30 targetSdk=30
+    versionName=11
+    splits=[base]
+    apkSigningVersion=3
+    applicationInfo=ApplicationInfo{84eaf0 com.android.phone}
+    flags=[ SYSTEM HAS_CODE PERSISTENT ALLOW_CLEAR_USER_DATA ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE DEFAULT_TO_DEVICE_PROTECTED_STORAGE DIRECT_BOOT_AWARE PRIVILEGED PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    queriesPackages=[]
+    dataDir=/data/user_de/0/com.android.phone
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2008-12-31 16:00:00
+    firstInstallTime=2008-12-31 16:00:00
+    lastUpdateTime=2008-12-31 16:00:00
+    signatures=PackageSignatures{dcd5869 version:3, signatures:[70391cfc], past signatures:[]}
+    installPermissionsFixed=false
+    pkgFlags=[ SYSTEM HAS_CODE PERSISTENT ALLOW_CLEAR_USER_DATA ]
+    requested permissions:
+      android.permission.GRANT_RUNTIME_PERMISSIONS_TO_TELEPHONY_DEFAULTS
+      android.permission.BROADCAST_STICKY
+      android.permission.CALL_PHONE
+      android.permission.CALL_PRIVILEGED
+      android.permission.CONTROL_INCALL_EXPERIENCE
+      android.permission.DOWNLOAD_WITHOUT_NOTIFICATION
+      android.permission.WRITE_SETTINGS
+      android.permission.WRITE_SECURE_SETTINGS
+      android.permission.READ_CONTACTS
+      android.permission.READ_CALL_LOG: restricted=true
+      android.permission.WRITE_CONTACTS
+      android.permission.WRITE_CALL_LOG: restricted=true
+      android.permission.SYSTEM_ALERT_WINDOW
+      android.permission.INTERNAL_SYSTEM_WINDOW
+      android.permission.VIBRATE
+      android.permission.BLUETOOTH
+      android.permission.BLUETOOTH_ADMIN
+      android.permission.REORDER_TASKS
+      android.permission.CHANGE_CONFIGURATION
+      android.permission.WAKE_LOCK
+      android.permission.MODIFY_AUDIO_SETTINGS
+      android.permission.STATUS_BAR
+      android.permission.STATUS_BAR_SERVICE
+      android.permission.RECEIVE_SMS: restricted=true
+      android.permission.READ_SMS: restricted=true
+      android.permission.WRITE_SMS
+      android.permission.SEND_SMS: restricted=true
+      android.permission.SEND_RESPOND_VIA_MESSAGE
+      android.permission.SET_TIME_ZONE
+      android.permission.SUGGEST_TELEPHONY_TIME_AND_ZONE
+      android.permission.ACCESS_WIFI_STATE
+      android.permission.READ_PRIVILEGED_PHONE_STATE
+      android.permission.MODIFY_PHONE_STATE
+      android.permission.ACCESS_IMS_CALL_SERVICE
+      android.permission.DEVICE_POWER
+      android.permission.DISABLE_KEYGUARD
+      android.permission.INTERNET
+      android.permission.PROCESS_OUTGOING_CALLS: restricted=true
+      android.permission.ACCESS_COARSE_LOCATION
+      android.permission.ACCESS_FINE_LOCATION
+      android.permission.WRITE_APN_SETTINGS
+      android.permission.BROADCAST_SMS
+      android.permission.BROADCAST_WAP_PUSH
+      android.permission.CHANGE_WIFI_STATE
+      android.permission.ACCESS_NETWORK_STATE
+      android.permission.CHANGE_NETWORK_STATE
+      android.permission.RECEIVE_BOOT_COMPLETED
+      android.permission.SHUTDOWN
+      android.permission.RECORD_AUDIO
+      android.permission.PERFORM_CDMA_PROVISIONING
+      android.permission.USE_SIP
+      android.permission.REBOOT
+      android.permission.UPDATE_LOCK
+      android.permission.INTERACT_ACROSS_USERS
+      android.permission.INTERACT_ACROSS_USERS_FULL
+      com.android.smspush.WAPPUSH_MANAGER_BIND
+      android.permission.MANAGE_USERS
+      android.permission.UPDATE_APP_OPS_STATS
+      android.permission.READ_CARRIER_APP_INFO
+      android.permission.MANAGE_APP_OPS_MODES
+      android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS
+      android.permission.NETWORK_FACTORY
+      android.permission.OBSERVE_NETWORK_POLICY
+      android.permission.SET_PREFERRED_APPLICATIONS
+      android.permission.READ_SEARCH_INDEXABLES
+      android.permission.DUMP
+      android.permission.REGISTER_CALL_PROVIDER
+      android.permission.REGISTER_SIM_SUBSCRIPTION
+      android.permission.BIND_IMS_SERVICE
+      android.permission.BIND_CARRIER_SERVICES
+      android.permission.BIND_CARRIER_MESSAGING_SERVICE
+      android.permission.BIND_EUICC_SERVICE
+      android.permission.BIND_TELEPHONY_NETWORK_SERVICE
+      android.permission.BIND_CELL_BROADCAST_SERVICE
+      android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS
+      android.permission.READ_SYNC_SETTINGS
+      android.permission.WRITE_SYNC_SETTINGS
+      android.permission.AUTHENTICATE_ACCOUNTS
+      android.permission.MANAGE_ACCOUNTS
+      android.permission.GET_ACCOUNTS
+      com.android.voicemail.permission.ADD_VOICEMAIL
+      com.android.voicemail.permission.WRITE_VOICEMAIL
+      com.android.voicemail.permission.READ_VOICEMAIL
+      android.permission.BIND_VISUAL_VOICEMAIL_SERVICE
+      android.permission.LOCAL_MAC_ADDRESS
+      android.permission.CHANGE_COMPONENT_ENABLED_STATE
+      android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST
+      android.permission.READ_BLOCKED_NUMBERS
+      android.permission.WRITE_BLOCKED_NUMBERS
+      android.permission.NETWORK_SETTINGS
+      android.permission.REGISTER_STATS_PULL_ATOM
+      android.permission.STOP_APP_SWITCHES
+      android.permission.UPDATE_DEVICE_STATS
+      android.permission.MANAGE_NETWORK_POLICY
+      android.permission.READ_NETWORK_USAGE_HISTORY
+      android.permission.BIND_TELEPHONY_DATA_SERVICE
+      android.permission.PACKAGE_USAGE_STATS
+      android.permission.READ_PRECISE_PHONE_STATE
+      android.permission.MANAGE_ROLE_HOLDERS
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND
+      android.permission.NETWORK_STATS_PROVIDER
+      android.permission.HANDLE_CAR_MODE_CHANGES
+      android.permission.MANAGE_SUBSCRIPTION_PLANS
+      android.permission.READ_PHONE_STATE
+    install permissions:
+      android.permission.REAL_GET_TASKS: granted=true
+      android.permission.DOWNLOAD_WITHOUT_NOTIFICATION: granted=true
+      android.permission.WRITE_SETTINGS: granted=true
+      android.permission.NETWORK_STATS_PROVIDER: granted=true
+      android.permission.MODIFY_AUDIO_SETTINGS: granted=true
+      android.permission.USE_RESERVED_DISK: granted=true
+      android.permission.MANAGE_ACCOUNTS: granted=true
+      android.permission.SYSTEM_ALERT_WINDOW: granted=true
+      android.permission.BIND_CARRIER_SERVICES: granted=true
+      android.permission.SEND_RESPOND_VIA_MESSAGE: granted=true
+      android.permission.SHUTDOWN: granted=true
+      android.permission.CHANGE_COMPONENT_ENABLED_STATE: granted=true
+      android.permission.INTERNAL_SYSTEM_WINDOW: granted=true
+      android.permission.NETWORK_SETTINGS: granted=true
+      android.permission.BROADCAST_SMS: granted=true
+      android.permission.CALL_PRIVILEGED: granted=true
+      android.permission.CHANGE_NETWORK_STATE: granted=true
+      android.permission.WRITE_SYNC_SETTINGS: granted=true
+      android.permission.RECEIVE_BOOT_COMPLETED: granted=true
+      android.permission.MANAGE_ROLE_HOLDERS: granted=true
+      android.permission.DEVICE_POWER: granted=true
+      android.permission.SET_TIME_ZONE: granted=true
+      android.permission.MANAGE_SUBSCRIPTION_PLANS: granted=true
+      android.permission.READ_PROFILE: granted=true
+      android.permission.BLUETOOTH: granted=true
+      android.permission.BROADCAST_WAP_PUSH: granted=true
+      com.android.voicemail.permission.READ_VOICEMAIL: granted=true
+      android.permission.WRITE_BLOCKED_NUMBERS: granted=true
+      android.permission.GRANT_RUNTIME_PERMISSIONS_TO_TELEPHONY_DEFAULTS: granted=true
+      android.permission.AUTHENTICATE_ACCOUNTS: granted=true
+      android.permission.INTERNET: granted=true
+      android.permission.REORDER_TASKS: granted=true
+      android.permission.BLUETOOTH_ADMIN: granted=true
+      android.permission.UPDATE_DEVICE_STATS: granted=true
+      android.permission.READ_PRECISE_PHONE_STATE: granted=true
+      android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS: granted=true
+      android.permission.PERFORM_CDMA_PROVISIONING: granted=true
+      android.permission.REGISTER_CALL_PROVIDER: granted=true
+      android.permission.INTERACT_ACROSS_USERS_FULL: granted=true
+      android.permission.STOP_APP_SWITCHES: granted=true
+      android.permission.PACKAGE_USAGE_STATS: granted=true
+      android.permission.WRITE_SECURE_SETTINGS: granted=true
+      android.permission.SET_ACTIVITY_WATCHER: granted=true
+      android.permission.READ_BLOCKED_NUMBERS: granted=true
+      android.permission.STATUS_BAR_SERVICE: granted=true
+      android.permission.READ_SEARCH_INDEXABLES: granted=true
+      android.permission.SUGGEST_TELEPHONY_TIME_AND_ZONE: granted=true
+      android.permission.LOG_COMPAT_CHANGE: granted=true
+      android.permission.READ_PRIVILEGED_PHONE_STATE: granted=true
+      android.permission.ACCESS_IMS_CALL_SERVICE: granted=true
+      android.permission.BROADCAST_STICKY: granted=true
+      android.permission.NETWORK_FACTORY: granted=true
+      android.permission.WRITE_SMS: granted=true
+      android.permission.WRITE_APN_SETTINGS: granted=true
+      android.permission.CHANGE_WIFI_STATE: granted=true
+      android.permission.RECEIVE_STK_COMMANDS: granted=true
+      android.permission.BIND_CARRIER_MESSAGING_SERVICE: granted=true
+      android.permission.ACCESS_MESSAGES_ON_ICC: granted=true
+      android.permission.BIND_EUICC_SERVICE: granted=true
+      android.permission.BIND_VISUAL_VOICEMAIL_SERVICE: granted=true
+      android.permission.MANAGE_USERS: granted=true
+      com.android.ims.permission.PRESENCE_ACCESS: granted=true
+      android.permission.SET_PREFERRED_APPLICATIONS: granted=true
+      android.permission.ACCESS_UCE_PRESENCE_SERVICE: granted=true
+      android.permission.ACCESS_NETWORK_STATE: granted=true
+      android.permission.DISABLE_KEYGUARD: granted=true
+      android.permission.OBSERVE_NETWORK_POLICY: granted=true
+      android.permission.CHANGE_CONFIGURATION: granted=true
+      android.permission.USER_ACTIVITY: granted=true
+      android.permission.LOCAL_MAC_ADDRESS: granted=true
+      android.permission.INTERACT_ACROSS_USERS: granted=true
+      com.android.ims.rcs.permission.STATUS_CHANGED: granted=true
+      android.permission.UPDATE_LOCK: granted=true
+      android.permission.READ_NETWORK_USAGE_HISTORY: granted=true
+      android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS: granted=true
+      com.android.rcs.eab.permission.READ_WRITE_EAB: granted=true
+      android.permission.REGISTER_STATS_PULL_ATOM: granted=true
+      android.permission.REGISTER_SIM_SUBSCRIPTION: granted=true
+      android.permission.BIND_TELEPHONY_NETWORK_SERVICE: granted=true
+      android.permission.REBOOT: granted=true
+      android.permission.MANAGE_NETWORK_POLICY: granted=true
+      android.permission.READ_SYNC_SETTINGS: granted=true
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND: granted=true
+      android.permission.BIND_TELEPHONY_DATA_SERVICE: granted=true
+      android.permission.BIND_CELL_BROADCAST_SERVICE: granted=true
+      android.permission.READ_COMPAT_CHANGE_CONFIG: granted=true
+      android.permission.VIBRATE: granted=true
+      android.permission.READ_CARRIER_APP_INFO: granted=true
+      android.permission.HANDLE_CAR_MODE_CHANGES: granted=true
+      android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST: granted=true
+      com.android.voicemail.permission.WRITE_VOICEMAIL: granted=true
+      android.permission.ACCESS_WIFI_STATE: granted=true
+      android.permission.MANAGE_APP_OPS_MODES: granted=true
+      android.permission.BIND_IMS_SERVICE: granted=true
+      android.permission.CONTROL_INCALL_EXPERIENCE: granted=true
+      android.permission.MODIFY_PHONE_STATE: granted=true
+      android.permission.STATUS_BAR: granted=true
+      android.permission.DUMP: granted=true
+      android.permission.READ_DEVICE_CONFIG: granted=true
+      android.permission.WAKE_LOCK: granted=true
+      android.permission.UPDATE_APP_OPS_STATS: granted=true
+    User 0: ceDataInode=123296 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+    User 10: ceDataInode=270427 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+    User 11: ceDataInode=278773 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+    User 12: ceDataInode=287074 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+
+Queries:
+  system apps queryable: false
+  forceQueryable:
+    [com.android.providers.telephony,com.android.phone,com.android.ons]
+  queries via package name:
+  queries via intent:
+  queryable via interaction:
+    User 0:
+      [com.android.car,com.android.providers.settings,com.android.location.fused,com.android.server.telecom,com.android.car.developeroptions,com.android.localtransport,android,com.android.keychain]:
+        [com.android.providers.telephony,com.android.phone,com.android.ons]
+      [com.android.providers.telephony,com.android.phone,com.android.ons]:
+        com.android.vending
+        [com.android.service.ims.presence,com.android.stk,com.android.service.ims,com.android.providers.telephony,com.android.phone,com.android.ons]
+      [com.google.android.networkstack,com.google.android.networkstack.permissionconfig,com.google.android.networkstack.tethering,com.google.android.cellbroadcastservice]:
+        [com.android.providers.telephony,com.android.phone,com.android.ons]
+    User 10:
+      [com.android.providers.telephony,com.android.phone,com.android.ons]:
+        [com.android.service.ims.presence,com.android.stk,com.android.service.ims,com.android.providers.telephony,com.android.phone,com.android.ons]
+      [com.android.service.ims.presence,com.android.stk,com.android.service.ims,com.android.providers.telephony,com.android.phone,com.android.ons]:
+        com.android.vending
+
+Shared users:
+  SharedUser [android.uid.phone] (c02a733):
+    userId=1001
+    Packages
+      PackageSetting{4fb7a7c com.android.service.ims.presence/1001}
+      PackageSetting{9e97dd4 com.android.stk/1001}
+      PackageSetting{b5855ae com.android.service.ims/1001}
+      PackageSetting{f3c1ff9 com.android.providers.telephony/1001}
+      PackageSetting{f75ed92 com.android.phone/1001}
+      PackageSetting{ff4bc9d com.android.ons/1001}
+    install permissions:
+      android.permission.REAL_GET_TASKS: granted=true
+      android.permission.DOWNLOAD_WITHOUT_NOTIFICATION: granted=true
+      android.permission.WRITE_SETTINGS: granted=true
+      android.permission.NETWORK_STATS_PROVIDER: granted=true
+      android.permission.MODIFY_AUDIO_SETTINGS: granted=true
+      android.permission.USE_RESERVED_DISK: granted=true
+      android.permission.MANAGE_ACCOUNTS: granted=true
+      android.permission.SYSTEM_ALERT_WINDOW: granted=true
+      android.permission.BIND_CARRIER_SERVICES: granted=true
+      android.permission.SEND_RESPOND_VIA_MESSAGE: granted=true
+      android.permission.SHUTDOWN: granted=true
+      android.permission.CHANGE_COMPONENT_ENABLED_STATE: granted=true
+      android.permission.INTERNAL_SYSTEM_WINDOW: granted=true
+      android.permission.NETWORK_SETTINGS: granted=true
+      android.permission.BROADCAST_SMS: granted=true
+      android.permission.CALL_PRIVILEGED: granted=true
+      android.permission.CHANGE_NETWORK_STATE: granted=true
+      android.permission.WRITE_SYNC_SETTINGS: granted=true
+      android.permission.RECEIVE_BOOT_COMPLETED: granted=true
+      android.permission.MANAGE_ROLE_HOLDERS: granted=true
+      android.permission.DEVICE_POWER: granted=true
+      android.permission.SET_TIME_ZONE: granted=true
+      android.permission.MANAGE_SUBSCRIPTION_PLANS: granted=true
+      android.permission.READ_PROFILE: granted=true
+      android.permission.BLUETOOTH: granted=true
+      android.permission.BROADCAST_WAP_PUSH: granted=true
+      com.android.voicemail.permission.READ_VOICEMAIL: granted=true
+      android.permission.WRITE_BLOCKED_NUMBERS: granted=true
+      android.permission.GRANT_RUNTIME_PERMISSIONS_TO_TELEPHONY_DEFAULTS: granted=true
+      android.permission.AUTHENTICATE_ACCOUNTS: granted=true
+      android.permission.INTERNET: granted=true
+      android.permission.REORDER_TASKS: granted=true
+      android.permission.BLUETOOTH_ADMIN: granted=true
+      android.permission.UPDATE_DEVICE_STATS: granted=true
+      android.permission.READ_PRECISE_PHONE_STATE: granted=true
+      android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS: granted=true
+      android.permission.PERFORM_CDMA_PROVISIONING: granted=true
+      android.permission.REGISTER_CALL_PROVIDER: granted=true
+      android.permission.INTERACT_ACROSS_USERS_FULL: granted=true
+      android.permission.STOP_APP_SWITCHES: granted=true
+      android.permission.PACKAGE_USAGE_STATS: granted=true
+      android.permission.WRITE_SECURE_SETTINGS: granted=true
+      android.permission.SET_ACTIVITY_WATCHER: granted=true
+      android.permission.READ_BLOCKED_NUMBERS: granted=true
+      android.permission.STATUS_BAR_SERVICE: granted=true
+      android.permission.READ_SEARCH_INDEXABLES: granted=true
+      android.permission.SUGGEST_TELEPHONY_TIME_AND_ZONE: granted=true
+      android.permission.LOG_COMPAT_CHANGE: granted=true
+      android.permission.READ_PRIVILEGED_PHONE_STATE: granted=true
+      android.permission.ACCESS_IMS_CALL_SERVICE: granted=true
+      android.permission.BROADCAST_STICKY: granted=true
+      android.permission.NETWORK_FACTORY: granted=true
+      android.permission.WRITE_SMS: granted=true
+      android.permission.WRITE_APN_SETTINGS: granted=true
+      android.permission.CHANGE_WIFI_STATE: granted=true
+      android.permission.RECEIVE_STK_COMMANDS: granted=true
+      android.permission.BIND_CARRIER_MESSAGING_SERVICE: granted=true
+      android.permission.ACCESS_MESSAGES_ON_ICC: granted=true
+      android.permission.BIND_EUICC_SERVICE: granted=true
+      android.permission.BIND_VISUAL_VOICEMAIL_SERVICE: granted=true
+      android.permission.MANAGE_USERS: granted=true
+      com.android.ims.permission.PRESENCE_ACCESS: granted=true
+      android.permission.SET_PREFERRED_APPLICATIONS: granted=true
+      android.permission.ACCESS_UCE_PRESENCE_SERVICE: granted=true
+      android.permission.ACCESS_NETWORK_STATE: granted=true
+      android.permission.DISABLE_KEYGUARD: granted=true
+      android.permission.OBSERVE_NETWORK_POLICY: granted=true
+      android.permission.CHANGE_CONFIGURATION: granted=true
+      android.permission.USER_ACTIVITY: granted=true
+      android.permission.LOCAL_MAC_ADDRESS: granted=true
+      android.permission.INTERACT_ACROSS_USERS: granted=true
+      com.android.ims.rcs.permission.STATUS_CHANGED: granted=true
+      android.permission.UPDATE_LOCK: granted=true
+      android.permission.READ_NETWORK_USAGE_HISTORY: granted=true
+      android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS: granted=true
+      com.android.rcs.eab.permission.READ_WRITE_EAB: granted=true
+      android.permission.REGISTER_STATS_PULL_ATOM: granted=true
+      android.permission.REGISTER_SIM_SUBSCRIPTION: granted=true
+      android.permission.BIND_TELEPHONY_NETWORK_SERVICE: granted=true
+      android.permission.REBOOT: granted=true
+      android.permission.MANAGE_NETWORK_POLICY: granted=true
+      android.permission.READ_SYNC_SETTINGS: granted=true
+      android.permission.START_ACTIVITIES_FROM_BACKGROUND: granted=true
+      android.permission.BIND_TELEPHONY_DATA_SERVICE: granted=true
+      android.permission.BIND_CELL_BROADCAST_SERVICE: granted=true
+      android.permission.READ_COMPAT_CHANGE_CONFIG: granted=true
+      android.permission.VIBRATE: granted=true
+      android.permission.READ_CARRIER_APP_INFO: granted=true
+      android.permission.HANDLE_CAR_MODE_CHANGES: granted=true
+      android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST: granted=true
+      com.android.voicemail.permission.WRITE_VOICEMAIL: granted=true
+      android.permission.ACCESS_WIFI_STATE: granted=true
+      android.permission.MANAGE_APP_OPS_MODES: granted=true
+      android.permission.BIND_IMS_SERVICE: granted=true
+      android.permission.CONTROL_INCALL_EXPERIENCE: granted=true
+      android.permission.MODIFY_PHONE_STATE: granted=true
+      android.permission.STATUS_BAR: granted=true
+      android.permission.DUMP: granted=true
+      android.permission.READ_DEVICE_CONFIG: granted=true
+      android.permission.WAKE_LOCK: granted=true
+      android.permission.UPDATE_APP_OPS_STATS: granted=true
+    User 0: 
+      gids=[1065, 3002, 3003, 3001, 3007, 3006]
+      runtime permissions:
+        android.permission.READ_SMS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.READ_CALL_LOG: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_FINE_LOCATION: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.RECEIVE_SMS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.READ_EXTERNAL_STORAGE: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_COARSE_LOCATION: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.READ_PHONE_STATE: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.SEND_SMS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.CALL_PHONE: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT]
+        android.permission.WRITE_CONTACTS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT]
+        android.permission.WRITE_CALL_LOG: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.USE_SIP: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.PROCESS_OUTGOING_CALLS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.GET_ACCOUNTS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.WRITE_EXTERNAL_STORAGE: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.RECORD_AUDIO: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.READ_CONTACTS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT]
+        com.android.voicemail.permission.ADD_VOICEMAIL: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+    User 10: 
+      gids=[1065, 3002, 3003, 3001, 3007, 3006]
+      runtime permissions:
+        android.permission.READ_SMS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.READ_CALL_LOG: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_FINE_LOCATION: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.RECEIVE_SMS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.READ_EXTERNAL_STORAGE: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.ACCESS_COARSE_LOCATION: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.READ_PHONE_STATE: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.SEND_SMS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.CALL_PHONE: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT]
+        android.permission.WRITE_CONTACTS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT]
+        android.permission.WRITE_CALL_LOG: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.USE_SIP: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.PROCESS_OUTGOING_CALLS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.GET_ACCOUNTS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.WRITE_EXTERNAL_STORAGE: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT|RESTRICTION_UPGRADE_EXEMPT]
+        android.permission.RECORD_AUDIO: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+        android.permission.READ_CONTACTS: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT]
+        com.android.voicemail.permission.ADD_VOICEMAIL: granted=true, flags=[ SYSTEM_FIXED|GRANTED_BY_DEFAULT|RESTRICTION_SYSTEM_EXEMPT]
+
+Package Changes:
+  Sequence number=348
+  User 0:
+    seq=0, package=com.google.android.permissioncontroller
+    seq=1, package=com.android.systemui
+    seq=22, package=com.google.android.cellbroadcastreceiver
+    seq=38, package=com.google.android.partnersetup
+    seq=172, package=com.google.android.apps.automotive.inputmethod
+    seq=203, package=com.google.android.car.setupwizard
+    seq=207, package=com.google.android.carassistant
+    seq=274, package=com.google.android.gsf
+    seq=294, package=com.google.android.apps.maps
+    seq=341, package=com.google.android.gms
+    seq=346, package=com.android.vending
+  User 10:
+    seq=3, package=com.google.android.permissioncontroller
+    seq=7, package=com.android.systemui
+    seq=23, package=com.google.android.cellbroadcastreceiver
+    seq=25, package=com.google.android.apps.automotive.inputmethod
+    seq=26, package=com.android.sdksetup
+    seq=27, package=com.android.stk
+    seq=41, package=com.google.android.car.setupwizard
+    seq=42, package=com.google.android.carassistant
+    seq=44, package=com.google.android.partnersetup
+    seq=132, package=com.google.android.gsf
+    seq=246, package=com.google.android.apps.maps
+    seq=293, package=com.google.android.gms
+    seq=347, package=com.android.vending
+  User 11:
+    seq=35, package=com.google.android.permissioncontroller
+  User 12:
+    seq=37, package=com.google.android.permissioncontroller
+
+
+Dexopt state:
+  [com.android.phone]
+    path: /system/priv-app/TeleService/TeleService.apk
+      x86_64: [status=quicken] [reason=first-boot]
+
+
+Compiler stats:
+  [com.android.phone]
+     TeleService.apk - 486
+
+APEX session state:
+
+Active APEX packages:
+
+
+Inactive APEX packages:
+
+
+Factory APEX packages:
+
+

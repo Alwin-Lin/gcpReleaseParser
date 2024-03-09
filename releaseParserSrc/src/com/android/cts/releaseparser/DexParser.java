@@ -174,7 +174,7 @@ public class DexParser extends FileParser {
                 ClassUtils.addAllApiClasses(
                         mInternalApiClassBuilderMap, mInternalApiPackageBuilder);
             }
-        } catch (IOException | DexFileFactory.DexFileNotFoundException ex) {
+        } catch (Exception ex) {
             String error = "Unable to load dex file: " + getFile().getAbsoluteFile();
             mExternalApiPackageBuilder.setError(error);
             System.err.println(error);
