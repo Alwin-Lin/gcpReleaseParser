@@ -1,66 +1,137 @@
-# What does it do?
-- Parse and process release files into CSV format, then store to BigQuerry for later use.
+# GCP Release Parser
+
+This project provides an ETL (Extract, Transform, Load) pipeline to parse Android release artifacts, process them into a structured CSV format, and prepare them for upload to Google BigQuery for analysis.
+
 ![](https://user-images.githubusercontent.com/22556115/116011036-a170ad80-a5d7-11eb-9d20-cb38a64b7756.jpg)
 
-Modeled after ETL pipeline, this project handels everything from extraction to load
+## Features
 
-* Extraction
-	* Release Parser extracts wanted data from target folder
-		* <Release_Name>-FileList.csv, meta data for all target files, size, etc.
-		* <Release_Name>-FeatureList.csv
-		* <Release_Name>-ExeList.csv
-		* <Release_Name>-ReleaseContent.csv
-		* <Release_Name>-PropertiesList.csv
-		* <Release_Name>-ServicesList
-	* Added in function to extract content from APEX files, as well as parse symbolic links
-* Transformation
-	* The extracted data is written and stored as CSV files
-* Load
-	* Use the script inside uploadScript
+* **Extraction**: Parses various Android file formats to extract data from a target release folder.
+  * Handles APEX files and symbolic links.
+  * Extracts metadata, features, executables, properties, services, and more.
+* **Transformation**: Transforms and stores the extracted data in multiple CSV files.
+* **Load**: The generated CSV files can be loaded into data analysis platforms like Google BigQuery.
 
-# Setup
-1. Clone and open the project, run uberjar
-2. Edit config, point path to jar to output uberjar
-3. Create a output folder
-4. program args -i <target folder> -o <output folder> -a 28 -f <SubDir1, SubDir2>
-	* -f allows you to specify what are the sub dir to be parsed
-	* If not specified, all files and dir in the folder will be parsed 
-5. Set JRE to jdk-14
-6. Run and check output folder for result
+## Output Files
 
-# Google Cloud Build
-## Build in Google Cloud Consoule
-This peoject can be adapted for Google Cloud Build with the following steps:
-* Clone this project in Google Cloud Shell
-* Create a new JRE Docker image
-	* Clone [Google Cloud Build community images](https://github.com/Alwin-Lin/cloud-builders-community) 
-	* ``` gcloud builds submit --config=cloudbuild-ndk-jre11.yaml --substitutions=_ANDROID_VERSION=29``` 
-	* Builds image with cloudbuild-ndk-jre11.yaml
-* Pull the built image to local 
-* Setup buckets
-* Build ```gcloud builds submit --config=cloudbuild-ndk-jre11.yaml --substitutions=_ANDROID_VERSION=29```
-	* ```./testCloudBuildLocal.sh``` does the same thing.
-### Checking result(s)
-Results are stored inside bucket gs://* your_bucket_ID *, this includes releaseParser.jar and index.html.
-### test.sh and releaseParser.sh 
-releaseParser.sh helps you run releaseParser
-test.sh is an example of releaseParser.sh
-## interacting with images in GCP
-Here are some command lines that can be used for testing docker image
-* docker image inspect <ID>
-	* Inspects the image
-	* Used for chekcing if the paths inside are setup correctly
-* docker run -t -d --rm --name sdk <ID> bash
-	* Runs <ID> docker immage
-* docker exec -ti sdk sh -c "<COMMAND_PROMP>"
-	* Executes <COMMAND_PROMP> on the running docker image
-* docker stop <CONTAINER_ID>
-	* Stops the running docker
-* docker ps
-	* Checks the running docker status 
+The parser generates the following CSV files:
 
-# Notes and ToDo:
-- The key value pair of ro.product.cpu.abilist,arm64-v8a,armeabi-v7a,armeabi inside PropertiesList can not be uploaded properly
-- Finish data visualization at DataStudio
-- Automate testing and uploading
-	- 
+* `<Release_Name>-FileList.csv`: Metadata for all target files (size, path, etc.).
+* `<Release_Name>-FeatureList.csv`: List of declared system features.
+* `<Release_Name>-ExeList.csv`: List of executable files.
+* `<Release_Name>-ReleaseContent.csv`: Comprehensive content summary.
+* `<Release_Name>-PropertiesList.csv`: System properties from `build.prop` files.
+* `<Release_Name>-ServicesList.csv`: List of system services.
+
+## Local Development
+
+Follow these steps to run the parser on your local machine.
+
+### Prerequisites
+
+* Java Development Kit (JDK) 14
+
+### Setup and Execution
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone <repository-url>
+    cd gcpReleaseParser
+    ```
+
+2. **Build the executable JAR:**
+    Navigate to the `releaseParserProj` directory and run the Gradle wrapper to build the `uber.jar`.
+
+    ```bash
+    cd releaseParserProj
+    ./gradlew uberJar
+    ```
+
+    The output JAR will be located at `releaseParserProj/build/libs/releaseParser.jar`.
+
+3. **Create an output folder:**
+
+    ```bash
+    mkdir output
+    ```
+
+4. **Run the parser:**
+    Execute the JAR with the appropriate arguments.
+
+    ```bash
+    java -jar releaseParserProj/build/libs/releaseParser.jar -i <target-folder> -o <output-folder> -a 28 -f <SubDir1,SubDir2>
+    ```
+
+    **Program Arguments:**
+    * `-i <target-folder>`: (Required) The path to the directory containing the release files to parse.
+    * `-o <output-folder>`: (Required) The path to the folder where CSV output will be saved.
+    * `-a <api-level>`: (Required) The Android API level.
+    * `-f <subdirectories>`: (Optional) A comma-separated list of specific subdirectories to parse. If not specified, all files and directories in the target folder will be parsed.
+
+## Google Cloud Build
+
+This project is configured for use with Google Cloud Build.
+
+### Build Process
+
+1. **Clone the project** in your Google Cloud Shell environment.
+2. **Build a custom JRE Docker image** if needed. This project uses a pre-existing image, but for reference, you can build one using the configurations in the [Google Cloud Build community images](https://github.com/GoogleCloudPlatform/cloud-builders-community) repository.
+3. **Submit the build job:**
+
+    ```bash
+    gcloud builds submit --config=cloudbuild.yaml
+    ```
+
+    Alternatively, you can run a local simulation of the cloud build using the provided script:
+
+    ```bash
+    ./testCloudBuildLocal.sh
+    ```
+
+4. **Check Results**: The build artifacts, including `releaseParser.jar` and test reports (`index.html`), will be stored in the Google Cloud Storage bucket specified in `cloudbuild.yaml`.
+
+### Helper Scripts
+
+* `releaseParser.sh`: A wrapper script to run the `releaseParser.jar`.
+* `test.sh`: An example script demonstrating how to use `releaseParser.sh`.
+
+## Developer Notes
+
+Here are some useful Docker commands for inspecting and interacting with container images in the Google Cloud environment.
+
+* **Inspect an image:**
+
+    ```bash
+    docker image inspect <IMAGE_ID>
+    ```
+
+* **Run a container in the background:**
+
+    ```bash
+    docker run -t -d --rm --name sdk <IMAGE_ID> bash
+    ```
+
+* **Execute a command in a running container:**
+
+    ```bash
+    docker exec -ti sdk sh -c "<COMMAND>"
+    ```
+
+* **Stop a running container:**
+
+    ```bash
+    docker stop <CONTAINER_ID>
+    ```
+
+* **List running containers:**
+
+    ```bash
+    docker ps
+    ```
+
+## To-Do / Known Issues
+
+* The key-value pair for `ro.product.cpu.abilist` in `PropertiesList.csv` is not parsed correctly.
+* Complete data visualization setup in Google DataStudio.
+* Automate testing and uploading processes.

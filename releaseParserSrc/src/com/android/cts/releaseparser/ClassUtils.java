@@ -17,7 +17,7 @@
 package com.android.cts.releaseparser;
 
 import com.android.cts.releaseparser.ReleaseProto.*;
-import com.android.utils.FileUtils;
+import org.apache.commons.io.FileUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,9 +28,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -140,7 +137,7 @@ public class ClassUtils {
         boolean bool = false;
         File directory = new File(System.getProperty("java.io.tmpdir"), "MainTest");
         bool = directory.mkdirs();
-        FileUtils.deleteDirectoryContents(directory);
+        //FileUtils.deleteDirectoryContents(directory);
         resourceDirPath = directory.getAbsolutePath();
         directory.deleteOnExit();
         // Copy jar resource files to temp dir
@@ -157,7 +154,7 @@ public class ClassUtils {
         boolean bool = false;
         File directory = new File(System.getProperty("java.io.tmpdir"), tmpDir);
         bool = directory.mkdirs();
-        FileUtils.deleteDirectoryContents(directory);
+        //FileUtils.deleteDirectoryContents(directory);
         getTempDir = directory.getAbsolutePath();
         directory.deleteOnExit();
         return getTempDir;
